@@ -7,3 +7,17 @@
     @apply text-base font-bold;
 
 }
+
+
+@media all and (max-width: 428px){
+
+._product_div{
+
+    @apply w-72;
+    border-color: red;
+
+}
+
+
+}
+
