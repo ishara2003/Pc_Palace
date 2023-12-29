@@ -9,7 +9,7 @@ function Header() {
 
             <header className={'h-full'}>
                 <nav className={'flex justify-between items-center bg-transparent p-[0.5rem] w-full'}>
-                    <Link to={'/'}>
+                    <Link to={'/home'}>
                     <img src="https://logodix.com/logo/1597040.png" title="logo" alt="logo" className={'w-[40px]'}/>
                     </Link>
                     <div className={'w-2/3 h-[46px] rounded-3xl relative '}>
@@ -35,11 +35,13 @@ function Header() {
                 <div className={' w-full h-[46px] bg-white mt-3 flex justify-between items-center'}>
 
                     <div className={'w-full bg-gray-600 ml-1'}>
+
+                        <Link to={'/laptop'}>
                     <button className={'w-full h-[46px] bg-[#D9D9D9] focus:outline-none'}>
-
                         LAPTOPS
-
                     </button>
+                        </Link>
+
                 </div>
 
                 <div className={'w-full bg-gray-600 ml-1'}>

@@ -1,12 +1,14 @@
 import './CSS/Product_CSS.css'
 import React, {useState} from "react";
 import {FaStar} from "react-icons/fa";
+import Laptop_Filter from "../LapTops_Content/Laptop_Filter.tsx";
+import Main_Content from "./Main_Content.tsx";
 
 interface Data {
 
     title: string,
-    fixed_price: string,
-    discount_price: string,
+    fixed_price: number,
+    discount_price: number,
     content: string
 }
 
@@ -14,8 +16,18 @@ function Product({title, content, fixed_price, discount_price}: Data) {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
 
+
+    const check = () => {
+        console.log("Clicked Product");
+        <Main_Content/>
+    }
+
     return (
+
+
+
         <div className={'w-72 p-5 border-solid border-2 m-5'}>
+            <button onClick={check}>
             <div className={'h-1/2 w-full '}>
                 <img src="src/assets/images/PC.png" alt="Pc_001"/>
 
@@ -39,10 +51,11 @@ function Product({title, content, fixed_price, discount_price}: Data) {
                         })}
                     </div>
 
-                    <p className={'text-2xl line-through'}>RS: {content}</p>
-                    <p className={'text-2xl'}>RS: {content}</p>
+                    <p className={'text-2xl line-through'}>RS: {fixed_price}</p>
+                    <p className={'text-2xl'}>RS: {discount_price}</p>
                 </div>
             </div>
+            </button>
         </div>
     );
 }

@@ -31,16 +31,19 @@ function Product_Content() {
     return (
         <div className={'special_offer mt-6 text-4xl '}>
             <h1 className={''}>SPECIAL OFFERS</h1>
-            <div className={'w-full border-2 border-amber-950 mt-6'}>
+            <div className={'w-full border-2  mt-6'}>
                 <div
                     className={'grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
                             // return <Product title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Product title={r.title} content={r.body} discount_price={r.body}
-                                            fixed_price={r.body}/>
+                            return <Product title={r.title} content={r.body} discount_price={r.id}
+                                            fixed_price={r.id}/>
                         })
                     }
+
+
+
                 </div>
             </div>
         </div>
