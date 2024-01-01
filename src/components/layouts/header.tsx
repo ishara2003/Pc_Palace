@@ -45,15 +45,19 @@ function Header() {
                 </div>
 
                 <div className={'w-full bg-gray-600 ml-1'}>
+                    <Link to={'/desktop'}>
                     <button className={'w-full h-[46px] bg-[#D9D9D9] focus:outline-none'}>
                         DESKTOPS
                     </button>
+                    </Link>
                 </div>
 
-                    <div className={'w-full bg-[#D9D9D9] ml-1 flex items-center'}>
-                        <button className={'w-full h-[46px] bg-[#D9D9D9] focus:outline-none'}>
-                            COMPONENTS
-                        </button>
+                    <div className="w-full ml-1 flex items-center bg-[#D9D9D9]">
+                        <Link className={'w-full'} to="/components">
+                            <button className="w-full h-[46px] bg-[#D9D9D9] focus:outline-none">
+                                COMPONENTS
+                            </button>
+                        </Link>
                         <img src="src/assets/icons/down-arrow.png" alt="/" className="ml-1 w-[30px]" />
                     </div>
 

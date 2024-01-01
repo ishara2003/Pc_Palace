@@ -1,7 +1,9 @@
-import Product from "./Product.tsx";
-import './CSS/MainContent.css';
+import Product from "../Main_Content/Product.tsx";
+// import './CSS/MainContent.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Lapto_Product from "./Laptop_Product.tsx";
+import Laptop_Product from "./Laptop_Product.tsx";
 
 interface Data {
     id: number,
@@ -11,7 +13,7 @@ interface Data {
     discount_price: string
 }
 
-function Product_Content() {
+function Laptop_Product_Content() {
     const [data, setProps] = useState<Data[]>([]);
 
     const fetchData = (): void => {
@@ -29,15 +31,15 @@ function Product_Content() {
     }, []);
 
     return (
-        <div className={'special_offer mt-6 text-4xl '}>
-            <h1 className={''}>SPECIAL OFFERS</h1>
+        <div className={' mt-6 text-4xl '}>
+
             <div className={'w-full mt-6'}>
                 <div
-                    className={'grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-fit relative m-auto'}>
+                    className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
                             // return <Product title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Product title={r.title} content={r.body} discount_price={r.id}
+                            return <Laptop_Product title={r.title} content={r.body} discount_price={r.id}
                                             fixed_price={r.id}/>
                         })
                     }
@@ -50,4 +52,4 @@ function Product_Content() {
     );
 }
 
-export default Product_Content;
+export default Laptop_Product_Content;

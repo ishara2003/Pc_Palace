@@ -11,7 +11,7 @@ function Main_Content() {
         <div className={'main_content_root p-4'}>
 
 
-            <div className={'w-full h-full border-amber-200 border-2 p-2'}>
+            <div className={'w-full h-full p-2'}>
 
                 <Clip_Board/>
 

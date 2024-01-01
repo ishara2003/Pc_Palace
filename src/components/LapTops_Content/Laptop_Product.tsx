@@ -1,8 +1,7 @@
-import './CSS/Product_CSS.css'
+
 import React, {useState} from "react";
 import {FaStar} from "react-icons/fa";
-import Laptop_Filter from "../LapTops_Content/Laptop_Filter.tsx";
-import Main_Content from "./Main_Content.tsx";
+
 
 interface Data {
 
@@ -12,7 +11,7 @@ interface Data {
     content: string
 }
 
-function Product({title, content, fixed_price, discount_price}: Data) {
+function Laptop_Product({title, content, fixed_price, discount_price}: Data) {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
 
@@ -29,7 +28,7 @@ function Product({title, content, fixed_price, discount_price}: Data) {
         <div className={'w-72 p-5 border-solid border-2 m-5'}>
             <button onClick={check}>
             <div className={'h-1/2 w-full '}>
-                <img src="src/assets/images/PC.png" alt="Pc_001"/>
+                <img src="src/assets/images/lap.png" alt="Pc_001"/>
 
                 <div className={'text-left product_text'}>
                     <p className={'text-2xl'}>{title}</p>
@@ -60,4 +59,4 @@ function Product({title, content, fixed_price, discount_price}: Data) {
     );
 }
 
-export default Product;
+export default Laptop_Product;

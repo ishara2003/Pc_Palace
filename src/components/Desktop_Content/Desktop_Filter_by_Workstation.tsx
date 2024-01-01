@@ -1,11 +1,11 @@
 import {ChangeEvent, useEffect, useState} from "react";
 
 interface CheckboxData {
-    name: string;
+    workstation: string;
     isChecked: boolean;
 }
 
-function Laptop_Filer_by_Brand() {
+function Desktop_Filer_by_Brand() {
 
     /*        const [isChecked, setIsChecked] = useState(false);
 
@@ -30,7 +30,7 @@ function Laptop_Filer_by_Brand() {
             console.log('Checkbox 2 is checked:', event.target.checked);
         };
 
-    const [brandcheckboxStates, setCheckboxStates]
+    const [workstationckboxStates, setCheckboxStates]
         = useState<boolean[]>(Array(20).fill(false));
 
     const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +45,7 @@ function Laptop_Filer_by_Brand() {
 
     return (
         <div>
-            {brandcheckboxStates.map((isChecked, index) => (
+            {workstationckboxStates.map((isChecked, index) => (
                 <input
                     key={index}
                     className=""
@@ -58,23 +58,19 @@ function Laptop_Filer_by_Brand() {
             ))}
         </div>*/
 
-    const initialBrandCheckboxes: CheckboxData[] = [
-        {name: 'ASUS', isChecked: false},
-        {name: 'LENOVO', isChecked: false},
-        {name: 'MSI', isChecked: false},
-        {name: 'HP', isChecked: false},
-        {name: 'ACER', isChecked: false},
-        {name: 'MAC', isChecked: false},
-        {name: 'HUAWEI', isChecked: false},
-        {name: 'DELL', isChecked: false},
+    const initialWorkstationCheckboxes: CheckboxData[] = [
+        {workstation: '3D MODELLING', isChecked: false},
+        {workstation: 'VIDEO EDOTING', isChecked: false},
+        {workstation: 'PHOTO EDITING', isChecked: false},
+
         // Add more checkboxes as needed
     ];
 
-    const [brandcheckboxStates, setBrandcheckboxStates]
-        = useState<CheckboxData[]>(initialBrandCheckboxes);
+    const [workstationckboxStates, setWorkstationckboxStates]
+        = useState<CheckboxData[]>(initialWorkstationCheckboxes);
 
     const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
-        setBrandcheckboxStates((prevStates) => {
+        setWorkstationckboxStates((prevStates) => {
             const newStates = [...prevStates];
             newStates[index].isChecked = event.target.checked;
 
@@ -84,31 +80,16 @@ function Laptop_Filer_by_Brand() {
             switch (newStates[index]) {
 
                 case newStates[0]:
-                    console.log(newStates[0].name);
+                    console.log(newStates[0].workstation);
                     break;
                 case newStates[1]:
-                    console.log(newStates[1].name);
+                    console.log(newStates[1].workstation);
 
                     break;
                 case newStates[2]:
-                    console.log(newStates[2].name);
+                    console.log(newStates[2].workstation);
                     break;
 
-                case newStates[3]:
-                    console.log(newStates[3].name);
-                    break;
-
-                case newStates[4]:
-                    console.log(newStates[4].name);
-                    break;
-
-                case newStates[5]:
-                    console.log(newStates[5].name);
-                    break;
-
-                case newStates[6]:
-                    console.log(newStates[6].name);
-                    break;
                 default:
                     console.log("None selected");
                     break;
@@ -153,24 +134,24 @@ function Laptop_Filer_by_Brand() {
             return newStates;
         });
 
-        // console.log(`${brandcheckboxStates[index].name} checkbox is checked:`, event.target.checked);
+        // console.log(`${workstationckboxStates[index].name} checkbox is checked:`, event.target.checked);
     };
 
 
     return (
         <div className={'text-left text-[20px] mb-3'}>
-            <h2 className={'relative left-[25px] text-[23px]'}><b>BRAND</b></h2>
-            {brandcheckboxStates.map((checkbox, index) => (
+            <h2 className={'relative left-[25px] text-[23px]'}><b>WORKSTATION</b></h2>
+            {workstationckboxStates.map((checkbox, index) => (
                 <div key={index}>
                     <input
                         className="w-5 h-5 m-4 rounded-md]"
-                        id={`brandcheckbox${index + 1}`}
+                        id={`workstationcheckbox${index + 1}`}
                         type="checkbox"
                         value=""
                         checked={checkbox.isChecked}
                         onChange={handleCheckboxChange(index)}
                     />
-                    <label htmlFor={`brandcheckbox${index + 1}`}>{checkbox.name}</label>
+                    <label htmlFor={`workstationcheckbox${index + 1}`}>{checkbox.workstation}</label>
                 </div>
             ))}
         </div>
@@ -178,4 +159,4 @@ function Laptop_Filer_by_Brand() {
 
 }
 
-export default Laptop_Filer_by_Brand;
+export default Desktop_Filer_by_Brand;

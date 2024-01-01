@@ -26,7 +26,29 @@ function Laptop_Filter_by_Screen_Size() {
             newStates[index].sizeIsChecked = event.target.checked;
 
 
-            if (newStates[index].sizeName == '13 INCHES') {
+            switch (newStates[index]) {
+
+                case newStates[0]:
+                    console.log(newStates[0].sizeName);
+                    break;
+                case newStates[1]:
+                    console.log(newStates[1].sizeName);
+
+                    break;
+                case newStates[2]:
+                    console.log(newStates[2].sizeName);
+                    break;
+
+                case newStates[3]:
+                    console.log(newStates[3].sizeName);
+                    break;
+
+                default:
+                    console.log("None selected");
+                    break;
+            }
+
+            /*if (newStates[index].sizeName == '13 INCHES') {
                 console.log("13 INCHES");
             }
 
@@ -40,7 +62,7 @@ function Laptop_Filter_by_Screen_Size() {
 
             if (newStates[index].sizeName == '16 INCHES') {
                 console.log("16 INCHES");
-            }
+            }*/
 
             return newStates;
         });
