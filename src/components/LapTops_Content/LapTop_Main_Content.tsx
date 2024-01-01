@@ -20,7 +20,7 @@ function LapTop_Main_Content() {
                 </div>
 
 
-                <div className={'w-full h-full border-l-amber-950 border-l-4 p-2 '}>
+                <div className={'w-full h-full border-l-green-600 border-l-4 p-2 '}>
 
                     <Laptop_Product_Content/>
 

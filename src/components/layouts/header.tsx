@@ -5,7 +5,7 @@ function Header() {
 
     return (
 
-        <div className={'mb-3'}>
+        <div className={'mb-3 bg-green-950'}>
 
             <header className={'h-full'}>
                 <nav className={'flex justify-between items-center bg-transparent p-[0.5rem] w-full'}>

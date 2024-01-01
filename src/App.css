@@ -3,12 +3,13 @@
   margin: 0 auto;
   padding: 0.25rem;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #000000;
 
 }
 
 #root p , label ,ul{
   font-family: inria Serif, serif;
+  color: white;
 
   
 }

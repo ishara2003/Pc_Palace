@@ -1,8 +1,7 @@
 import './CSS/Product_CSS.css'
 import React, {useState} from "react";
 import {FaStar} from "react-icons/fa";
-import Laptop_Filter from "../LapTops_Content/Laptop_Filter.tsx";
-import Main_Content from "./Main_Content.tsx";
+
 
 interface Data {
 
