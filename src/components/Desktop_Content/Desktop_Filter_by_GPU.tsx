@@ -94,7 +94,7 @@ function Desktop_Filter_by_GPU() {
 
     return (
         <div className={'text-left text-[20px] mb-3'}>
-            <h2 className={'relative left-[25px] text-[23px]'}><b>GPU</b></h2>
+            <h2 className={'relative left-[25px] text-[20px]    text-white'}><b>GPU</b></h2>
             {gpucheckboxStates.map((checkbox, index) => (
                 <div key={index}>
                     <input

@@ -4,20 +4,27 @@
 
 .product_text > p{
 
-    @apply text-base font-bold;
+    @apply text-base font-bold text-left ;
 
 }
 
 
 @media all and (max-width: 428px){
 
-._product_div{
-
-    @apply w-72;
-    border-color: red;
-
-}
 
 
 }
 
+.hover_effect_for_all_click_events{
+
+    @apply w-72 p-5 border-solid border-2 border-[#0af3f3] ;
+    /*transition: 1s;*/
+    border-image: linear-gradient(to bottom, #0af3f3, #007bff)1;
+
+}
+
+.hover_effect_for_all_click_events:hover{
+
+    background-image: linear-gradient( to bottom, #05b2b2, #23619a,#001c21);
+
+}

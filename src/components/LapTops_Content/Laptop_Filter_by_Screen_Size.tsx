@@ -73,7 +73,7 @@ function Laptop_Filter_by_Screen_Size() {
 
     return(
         <div className={'text-left text-[20px] mb-3'}>
-            <h2 className={'relative left-[25px] text-[23px]'}><b>SCREEN SIZE</b></h2>
+            <h2 className={'relative left-[25px] text-[20px] text-white'}><b>SCREEN SIZE</b></h2>
             {screensizecheckboxStates.map((checkbox, index) => (
                 <div key={index}>
                     <input

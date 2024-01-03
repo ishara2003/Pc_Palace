@@ -1,5 +1,21 @@
 .special_offer > h1{
     letter-spacing: 0.8em;
     font-family: inria Serif, serif;
-    color: #ffffff;
+    color: #0af3f3;
+}
+
+.view_btn:hover{
+    color: #0af3f3;
+}
+
+.cart_SVG:hover{
+    color: #0af3f3;
+    cursor: pointer;
+}
+
+
+.view_btn{
+    @apply relative top-[270px] w-[120px] p-2 text-2xl border-2 rounded bg-[#002E35] flex items-center justify-between hover:border-cyan-500;
+
+    border-image: linear-gradient(to right, #0af3f3, #007bff)1;
 }

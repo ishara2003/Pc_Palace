@@ -1,7 +1,8 @@
 .laptop_header{
     letter-spacing: 0.8em;
     font-family: inria Serif, serif;
-    color: #ffffff;
+    color: #0af3f3;
+
 
 }
 
@@ -26,4 +27,11 @@
 /* Styles for the slider active state */
 .slider .thumb.active {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.laptop_main_content_border{
+
+    @apply w-full h-full  border-l-4 p-2;
+
+    border-image: linear-gradient(to bottom, #0af3f3, #007bff)1;
 }

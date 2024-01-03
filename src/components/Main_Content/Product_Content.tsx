@@ -29,8 +29,8 @@ function Product_Content() {
     }, []);
 
     return (
-        <div className={'special_offer mt-6 text-4xl '}>
-            <h1 className={''}>SPECIAL OFFERS</h1>
+        <div className={'special_offer mt-6 text-6xl '}>
+            <h1 className={''}><b><u>SPECIAL OFFERS</u></b></h1>
             <div className={'w-full mt-6'}>
                 <div
                     className={'grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-fit relative m-auto'}>

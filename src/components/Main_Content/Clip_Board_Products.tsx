@@ -1,14 +1,17 @@
-interface Props{
+import {BiSolidSearch} from "react-icons/bi";
+import './CSS/MainContent.css'
 
-    backgroundImage:any,
-    productImage:any,
-    title:string
+interface Props {
+
+    backgroundImage: any,
+    productImage: any,
+    title: string
 
 }
 
-function Clip_Board_Products({image,productImage, title}) {
+function Clip_Board_Products({image, productImage, title}) {
 
-    return(
+    return (
         <div className={'flex items-center w-full h-[695.25px]'}>
 
             <img src={image} alt="Image 1"
@@ -19,9 +22,10 @@ function Clip_Board_Products({image,productImage, title}) {
 
             </div>
 
-            <button className={'relative top-[270px] w-[100px] text-2xl border-2 rounded bg-green-500'}><b>VIEW</b></button>
+            <button
+                className={'view_btn '}>
+                <b>VIEW </b><BiSolidSearch className={''}/></button>
             <h1 className={'relative text-8xl left-[700px] w-96'}><b>{title}</b></h1>
-
 
 
         </div>

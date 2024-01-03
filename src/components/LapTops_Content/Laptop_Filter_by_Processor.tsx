@@ -89,8 +89,8 @@ function Laptop_Filter_by_Processor() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-3'}>
-            <h2 className={'relative left-[25px] text-[23px]'}><b>PROCESSOR</b></h2>
+        <div className={'text-left text-[20px] mb-3 '}>
+            <h2 className={'relative left-[25px] text-[20px] text-white'}><b>PROCESSOR</b></h2>
             {processorcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
                     <input

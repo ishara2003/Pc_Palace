@@ -9,14 +9,9 @@ function Component_Catagorees_Processor_Filter_by_Brand() {
 
 
     const initialBrandCheckboxes: CheckboxData[] = [
-        {name: 'ASUS', isChecked: false},
-        {name: 'LENOVO', isChecked: false},
-        {name: 'MSI', isChecked: false},
-        {name: 'HP', isChecked: false},
-        {name: 'ACER', isChecked: false},
-        {name: 'MAC', isChecked: false},
-        {name: 'HUAWEI', isChecked: false},
-        {name: 'DELL', isChecked: false},
+        {name: 'AMD', isChecked: false},
+        {name: 'INTEL', isChecked: false},
+
         // Add more checkboxes as needed
     ];
 
@@ -40,25 +35,7 @@ function Component_Catagorees_Processor_Filter_by_Brand() {
                     console.log(newStates[1].name);
 
                     break;
-                case newStates[2]:
-                    console.log(newStates[2].name);
-                    break;
 
-                case newStates[3]:
-                    console.log(newStates[3].name);
-                    break;
-
-                case newStates[4]:
-                    console.log(newStates[4].name);
-                    break;
-
-                case newStates[5]:
-                    console.log(newStates[5].name);
-                    break;
-
-                case newStates[6]:
-                    console.log(newStates[6].name);
-                    break;
                 default:
                     console.log("None selected");
                     break;
@@ -74,8 +51,8 @@ function Component_Catagorees_Processor_Filter_by_Brand() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-3'}>
-            <h2 className={'relative left-[25px] text-[23px]'}><b>BRAND</b></h2>
+        <div className={'text-left text-[20px] mb-8'}>
+            <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>MANUFACTURER</h2>
             {brandcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
                     <input

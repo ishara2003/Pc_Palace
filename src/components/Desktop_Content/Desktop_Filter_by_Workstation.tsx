@@ -140,7 +140,7 @@ function Desktop_Filer_by_Brand() {
 
     return (
         <div className={'text-left text-[20px] mb-3'}>
-            <h2 className={'relative left-[25px] text-[23px]'}><b>WORKSTATION</b></h2>
+            <h2 className={'relative left-[25px] text-[20px] text-white'}><b>WORKSTATION</b></h2>
             {workstationckboxStates.map((checkbox, index) => (
                 <div key={index}>
                     <input

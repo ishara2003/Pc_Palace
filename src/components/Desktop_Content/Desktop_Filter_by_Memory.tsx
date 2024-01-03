@@ -77,7 +77,7 @@ function Desktop_Filter_by_Memory() {
 
     return (
         <div className={'text-left text-[20px] mb-3'}>
-            <h2 className={'relative left-[25px] text-[23px]'}><b>MEMORY (RAM)</b></h2>
+            <h2 className={'relative left-[25px] text-[20px] text-white'}><b>MEMORY (RAM)</b></h2>
             {ramcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
                     <input

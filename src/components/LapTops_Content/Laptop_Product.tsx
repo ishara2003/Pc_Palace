@@ -1,7 +1,6 @@
-
 import React, {useState} from "react";
 import {FaStar} from "react-icons/fa";
-
+import '../Main_Content/CSS/Product_CSS.css'
 
 interface Data {
 
@@ -25,12 +24,12 @@ function Laptop_Product({title, content, fixed_price, discount_price}: Data) {
 
 
 
-        <div className={'w-72 p-5 border-solid border-2 m-5'}>
+        <div className={'hover_effect_for_all_click_events m-5'}>
             <button onClick={check}>
             <div className={'h-1/2 w-full '}>
                 <img src="src/assets/images/lap.png" alt="Pc_001"/>
 
-                <div className={'text-left product_text'}>
+                <div className={'product_text'}>
                     <p className={'text-2xl'}>{title}</p>
                     <p className={'text-2xl'}>Reviews</p>
 

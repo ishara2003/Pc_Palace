@@ -21,11 +21,13 @@ function Product({title, content, fixed_price, discount_price}: Data) {
 
     }
 
+
+
     return (
 
 
 
-        <div className={'w-72 p-5 border-solid border-2 m-5'}>
+        <div style={{transition:"2s", }} className={'hover_effect_for_all_click_events m-5'}>
             <button onClick={check}>
             <div className={'h-1/2 w-full '}>
                 <img src="src/assets/images/PC.png" alt="Pc_001"/>

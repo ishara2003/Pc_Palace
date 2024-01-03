@@ -43,7 +43,7 @@ function Clip_Board() {
             <Carousel
                 additionalTransfrom={0}
                 arrows
-                autoPlay
+                autoPlay={true}
                 autoPlaySpeed={5000}
                 centerMode={false}
                 className=""
@@ -51,11 +51,10 @@ function Clip_Board() {
                 dotListClass=""
                 draggable
                 focusOnSelect={false}
-                infinite
+                infinite={true}
                 itemClass=""
                 keyBoardControl
                 minimumTouchDrag={10}
-                pauseOnHover
                 renderArrowsWhenDisabled={false}
                 renderButtonGroupOutside={false}
                 renderDotsOutside={false}
@@ -81,7 +80,7 @@ function Clip_Board() {
                             max: 1024,
                             min: 464
                         },
-                        items: 2,
+                        items: 1,
                         partialVisibilityGutter: 30
                     }
                 }}
@@ -92,7 +91,7 @@ function Clip_Board() {
                 showDots={false}
                 sliderClass=""
                 slidesToSlide={1}
-                swipeable
+                swipeable={true}
             >
 
 

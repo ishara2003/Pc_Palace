@@ -9,7 +9,7 @@ function Component_Catagorees_Motherboard_Filter_by_Brand() {
 
 
     const initialBrandCheckboxes: CheckboxData[] = [
-        {name: 'ASUSssssss', isChecked: false},
+        {name: 'ASUS', isChecked: false},
         {name: 'LENOVO', isChecked: false},
         {name: 'MSI', isChecked: false},
         {name: 'HP', isChecked: false},
@@ -74,8 +74,8 @@ function Component_Catagorees_Motherboard_Filter_by_Brand() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-3'}>
-            <h2 className={'relative left-[25px] text-[23px]'}><b>BRAND</b></h2>
+        <div className={'text-left text-[20px] mb-8'}>
+            <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>MANUFACTURER</h2>
             {brandcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
                     <input
