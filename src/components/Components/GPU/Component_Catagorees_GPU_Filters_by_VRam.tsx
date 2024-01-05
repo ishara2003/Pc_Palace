@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import '../CSS/Filter_CSS.css'
 
 interface speedCheckboxData {
     ramsizeName: string;
@@ -24,32 +25,32 @@ function Component_Catagorees_GPU_Filters_by_VRam() {
     const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
         setVRamcheckboxStates((prevStates) => {
             const newStates = [...prevStates];
-            newStates[index].speedIsChecked = event.target.checked;
+            newStates[index].ramsizeIsChecked = event.target.checked;
 
 
             switch (newStates[index]) {
 
                 case newStates[0]:
-                    console.log(newStates[0].speedName);
+                    console.log(newStates[0].ramsizeName);
                     break;
                 case newStates[1]:
-                    console.log(newStates[1].speedName);
+                    console.log(newStates[1].ramsizeName);
 
                     break;
                 case newStates[2]:
-                    console.log(newStates[2].speedName);
+                    console.log(newStates[2].ramsizeName);
                     break;
 
                 case newStates[3]:
-                    console.log(newStates[3].speedName);
+                    console.log(newStates[3].ramsizeName);
                     break;
 
                 case newStates[4]:
-                    console.log(newStates[4].speedName);
+                    console.log(newStates[4].ramsizeName);
                     break;
 
                 case newStates[5]:
-                    console.log(newStates[5].speedName);
+                    console.log(newStates[5].ramsizeName);
                     break;
 
               /*  case newStates[6]:
@@ -79,7 +80,7 @@ function Component_Catagorees_GPU_Filters_by_VRam() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>V-RAM</h2>
             {VRamcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
@@ -88,7 +89,7 @@ function Component_Catagorees_GPU_Filters_by_VRam() {
                         id={`vramcheckbox${index + 1}`}
                         type="checkbox"
                         value=""
-                        checked={checkbox.speedIsChecked}
+                        checked={checkbox.ramsizeIsChecked}
                         onChange={handleCheckboxChange(index)}
                     />
                     <label className={'text-center cursor-pointer'}

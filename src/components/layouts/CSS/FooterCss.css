@@ -27,7 +27,7 @@
 }
 
 .header_nav_bar {
-    @apply rounded;
+    /*@apply rounded;*/
 
     background-color: #0af3f3;
     background-image: linear-gradient(to left, #08e8e8, #0b3457, #077a91);

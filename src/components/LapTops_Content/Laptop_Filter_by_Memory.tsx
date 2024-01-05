@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import '../Components/CSS/Filter_CSS.css'
 
 interface RamCheckboxData {
     ramName: string;
@@ -76,7 +77,7 @@ function Laptop_Filter_by_Memory() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-3'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-white'}><b>MEMORY (RAM)</b></h2>
             {ramcheckboxStates.map((checkbox, index) => (
                 <div key={index}>

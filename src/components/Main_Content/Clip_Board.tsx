@@ -19,16 +19,16 @@ function Clip_Board() {
 
     const products = () => [
         {
-            backgroundImg: 'src/assets/images/MSI-laptops.jpeg',
-            productImg: 'src/assets/images/PC.png',
+            backgroundImg: 'src/assets/products/MSI-laptops.jpeg',
+            productImg: 'src/assets/products/PC.png',
             title: 'MSI LAPTOP LIMITED OFFER',
         },{
-            backgroundImg: 'src/assets/images/msi-assassins-creed-mirage-promotion-featureed.jpg',
-            productImg: 'src/assets/images/PC.png',
+            backgroundImg: 'src/assets/products/msi-assassins-creed-mirage-promotion-featureed.jpg',
+            productImg: 'src/assets/products/PC.png',
             title: 'MSI LAPTOP LIMITED OFFER',
         },{
-            backgroundImg: 'src/assets/images/msi-logo-06-.jpg',
-            productImg: 'src/assets/images/PC.png',
+            backgroundImg: 'src/assets/products/msi-logo-06-.jpg',
+            productImg: 'src/assets/products/PC.png',
             title: 'MSI LAPTOP LIMITED OFFER',
         },
         // Add more products as needed

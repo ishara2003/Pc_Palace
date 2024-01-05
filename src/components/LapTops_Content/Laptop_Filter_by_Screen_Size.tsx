@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import '../Components/CSS/Filter_CSS.css'
 
 interface ScreenSizeCheckboxData {
     sizeName: string;
@@ -72,7 +73,7 @@ function Laptop_Filter_by_Screen_Size() {
 
 
     return(
-        <div className={'text-left text-[20px] mb-3'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-white'}><b>SCREEN SIZE</b></h2>
             {screensizecheckboxStates.map((checkbox, index) => (
                 <div key={index}>

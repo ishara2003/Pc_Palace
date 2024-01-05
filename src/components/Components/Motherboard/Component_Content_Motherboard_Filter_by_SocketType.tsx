@@ -1,4 +1,6 @@
 import {ChangeEvent, useState} from "react";
+import '../CSS/Filter_CSS.css'
+
 
 interface boardSocketCheckboxData {
     boardSocketName: string;
@@ -61,7 +63,7 @@ function Component_Content_Motherboard_Filter_by_SocketType() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>SOCKET TYPE</h2>
             {boardSocketcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
@@ -73,7 +75,7 @@ function Component_Content_Motherboard_Filter_by_SocketType() {
                         checked={checkbox.boardSocketIsChecked}
                         onChange={handleCheckboxChange(index)}
                     />
-                    <label className={'text-center'} htmlFor={`boardSocketcheckbox${index + 1}`}>{checkbox.boardSocketName}</label>
+                    <label className={'text-center cursor-pointer'} htmlFor={`boardSocketcheckbox${index + 1}`}>{checkbox.boardSocketName}</label>
                 </div>
             ))}
         </div>

@@ -1,5 +1,5 @@
 import {ChangeEvent, useState} from "react";
-
+import '../Components/CSS/Filter_CSS.css'
 interface ProcessorCheckboxData {
     processorName: string;
     processorIsChecked: boolean;
@@ -89,7 +89,7 @@ function Desktop_Filter_by_Processor() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-3'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-white'}><b>PROCESSOR</b></h2>
             {processorcheckboxStates.map((checkbox, index) => (
                 <div key={index}>

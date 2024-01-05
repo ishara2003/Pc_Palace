@@ -19,7 +19,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.21.1",
     "react-simple-star-rating": "^5.1.7",
-    "react-slider": "^2.0.6"
+    "react-slider": "^2.0.6",
+    "toolcool-range-slider": "^4.0.28"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

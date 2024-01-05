@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import '../CSS/Filter_CSS.css'
 
 interface gpuVRamsizeCheckboxData {
     gpuVRameName: string;
@@ -42,13 +43,13 @@ function Component_Content_GPU_Filter_by_Chipset() {
                     break;
 
                 case newStates[3]:
-                    console.log(newStates[3].ramsizeName);
+                    console.log(newStates[3].gpuVRameName);
                     break;
                 case newStates[4]:
-                    console.log(newStates[4].ramsizeName);
+                    console.log(newStates[4].gpuVRameName);
                     break;
                 case newStates[5]:
-                    console.log(newStates[5].ramsizeName);
+                    console.log(newStates[5].gpuVRameName);
                     break;
                 default:
                     console.log("None selected");
@@ -64,7 +65,7 @@ function Component_Content_GPU_Filter_by_Chipset() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>CHIPSET</h2>
             {gpuVRamcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
@@ -76,7 +77,7 @@ function Component_Content_GPU_Filter_by_Chipset() {
                         checked={checkbox.gpuVRamIsChecked}
                         onChange={handleCheckboxChange(index)}
                     />
-                    <label className={'text-center'}
+                    <label  className={'text-center cursor-pointer'}
                            htmlFor={`gpuchipsetcheckbox${index + 1}`}>{checkbox.gpuVRameName}</label>
                 </div>
             ))}

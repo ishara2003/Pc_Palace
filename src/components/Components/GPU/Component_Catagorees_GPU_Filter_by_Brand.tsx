@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import '../CSS/Filter_CSS.css'
 
 interface GPUCheckboxData {
     GPUName: string;
@@ -74,7 +75,7 @@ function Component_Catagorees_GPU_Filter_by_Brand() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>MANUFACTURER</h2>
             {GPUcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
@@ -86,7 +87,7 @@ function Component_Catagorees_GPU_Filter_by_Brand() {
                         checked={checkbox.GPUIsChecked}
                         onChange={handleCheckboxChange(index)}
                     />
-                    <label htmlFor={`gpucheckbox${index + 1}`}>{checkbox.GPUName}</label>
+                    <label  className={'text-center cursor-pointer'} htmlFor={`gpucheckbox${index + 1}`}>{checkbox.GPUName}</label>
                 </div>
             ))}
         </div>

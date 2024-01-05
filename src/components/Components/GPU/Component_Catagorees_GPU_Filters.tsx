@@ -9,8 +9,8 @@ function Component_Catagorees_GPU_Filters() {
     return(
         <div className={''}>
             <Component_Catagorees_GPU_Filter_by_Brand/>
-            <Component_Catagorees_GPU_Filters_by_VRam/>
             <Component_Content_GPU_Filter_by_Chipset/>
+            <Component_Catagorees_GPU_Filters_by_VRam/>
         </div>
     )
 

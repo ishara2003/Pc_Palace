@@ -74,7 +74,7 @@ function Component_Catagorees_Processors_Filters_by_Cores() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[23px] text-amber-50'}>CORES</h2>
             {corescheckboxStates.map((checkbox, index) => (
                 <div key={index}>

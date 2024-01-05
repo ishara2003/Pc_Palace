@@ -17,7 +17,7 @@ function Clip_Board_Products({image, productImage, title}) {
             <img src={image} alt="Image 1"
                  className={'h-[695px] w-fit  absolute'}/>
 
-            <div className={'relative border-2 border-amber-200 w-1/4 h-[430px] left-60'}>
+            <div className={'relative w-1/4 h-[430px] left-60'}>
                 <img src={productImage} alt="Image 1" className={'w-[450px] '}/>
 
             </div>

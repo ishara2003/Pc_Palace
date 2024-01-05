@@ -1,4 +1,6 @@
 import {ChangeEvent, useState} from "react";
+import '../CSS/Filter_CSS.css'
+
 
 interface chipsetCheckboxData {
     chipName: string;
@@ -84,7 +86,7 @@ function Component_Catagorees_Motherboard_Filters_by_Chipset() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>CHIPSET</h2>
             {chipcheckboxStates.map((checkbox, index) => (
                 <div key={index}>

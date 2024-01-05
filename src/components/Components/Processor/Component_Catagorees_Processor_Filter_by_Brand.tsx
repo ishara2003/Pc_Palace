@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import '../CSS/Filter_CSS.css'
 
 interface CheckboxData {
     name: string;
@@ -51,7 +52,7 @@ function Component_Catagorees_Processor_Filter_by_Brand() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>MANUFACTURER</h2>
             {brandcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
@@ -63,7 +64,7 @@ function Component_Catagorees_Processor_Filter_by_Brand() {
                         checked={checkbox.isChecked}
                         onChange={handleCheckboxChange(index)}
                     />
-                    <label htmlFor={`brandcheckbox${index + 1}`}>{checkbox.name}</label>
+                    <label  className={'text-center cursor-pointer'} htmlFor={`brandcheckbox${index + 1}`}>{checkbox.name}</label>
                 </div>
             ))}
         </div>

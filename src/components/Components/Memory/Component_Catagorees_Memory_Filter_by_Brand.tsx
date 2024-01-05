@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import '../CSS/Filter_CSS.css'
 
 interface MemoryCheckboxData {
     memoryName: string;
@@ -74,7 +75,7 @@ function Component_Catagorees_Memory_Filter_by_Brand() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>MANUFACTURER</h2>
             {memorycheckboxStates.map((checkbox, index) => (
                 <div key={index}>
@@ -86,7 +87,7 @@ function Component_Catagorees_Memory_Filter_by_Brand() {
                         checked={checkbox.memoryIsChecked}
                         onChange={handleCheckboxChange(index)}
                     />
-                    <label htmlFor={`memorycheckbox${index + 1}`}>{checkbox.memoryName}</label>
+                    <label  className={'text-center cursor-pointer'} htmlFor={`memorycheckbox${index + 1}`}>{checkbox.memoryName}</label>
                 </div>
             ))}
         </div>

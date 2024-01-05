@@ -1,7 +1,8 @@
+/*
 .component_catagorees_item_list{
-    padding: 15px; /* Adjust the padding value as needed */
-    margin-top: 30px; /* Adjust the margin value as needed */
-    margin-bottom: 30px; /* Adjust the margin value as needed */
+    padding: 15px; !* Adjust the padding value as needed *!
+    margin-top: 30px; !* Adjust the margin value as needed *!
+    margin-bottom: 30px; !* Adjust the margin value as needed *!
     border: 4px solid #0af3f3;
     @apply w-full h-[70px];
     transition: width 0.5s, height 0.5s;
@@ -12,3 +13,4 @@
         background-image: linear-gradient( to right, #05b2b2, #23619a,#001c21);
     }
 }
+*/

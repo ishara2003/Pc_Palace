@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import '../CSS/Filter_CSS.css'
 
 interface ramsizeCheckboxData {
     ramsizeName: string;
@@ -61,7 +62,7 @@ function Component_Content_Memory_Filter_by_Size() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[20px] text-amber-50'}>SIZE</h2>
             {ramsizecheckboxStates.map((checkbox, index) => (
                 <div key={index}>
@@ -73,7 +74,7 @@ function Component_Content_Memory_Filter_by_Size() {
                         checked={checkbox.ramsizeIsChecked}
                         onChange={handleCheckboxChange(index)}
                     />
-                    <label className={'text-center'} htmlFor={`ramSizecheckbox${index + 1}`}>{checkbox.ramsizeName}</label>
+                    <label  className={'text-center cursor-pointer'} htmlFor={`ramSizecheckbox${index + 1}`}>{checkbox.ramsizeName}</label>
                 </div>
             ))}
         </div>

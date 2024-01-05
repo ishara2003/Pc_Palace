@@ -75,7 +75,7 @@ function Component_Content_Processor_Filter_by_SocketType() {
 
 
     return (
-        <div className={'text-left text-[20px] mb-8'}>
+        <div className={'filter_css'}>
             <h2 className={'relative left-[25px] text-[23px] text-amber-50'}>SOCKET TYPE</h2>
             {socketcheckboxStates.map((checkbox, index) => (
                 <div key={index}>
@@ -87,7 +87,7 @@ function Component_Content_Processor_Filter_by_SocketType() {
                         checked={checkbox.socketIsChecked}
                         onChange={handleCheckboxChange(index)}
                     />
-                    <label className={'text-center'} htmlFor={`socketcheckbox${index + 1}`}>{checkbox.socketName}</label>
+                    <label  className={'text-center cursor-pointer'} htmlFor={`socketcheckbox${index + 1}`}>{checkbox.socketName}</label>
                 </div>
             ))}
         </div>
