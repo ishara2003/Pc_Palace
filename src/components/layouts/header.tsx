@@ -75,9 +75,12 @@ function Header() {
                     </div>
 
                     <div className={'w-full  ml-1 flex items-center header_nav_bar header_nav_bar_color'}>
+
+                      <Link className={'w-full'} to={"/gaming"}>
                         <button className={'w-full h-[46px]  focus:outline-none  header_nav_bar_color header_nav_bar'}>
                             <b> GAMING</b>
                         </button>
+                      </Link>
                         <BiSolidDownArrow  className="ml-1 w-[30px]" />
                         {/*<img src="src/assets/icons/down-arrow.png" alt="/" className="ml-1 w-[30px] " />*/}
                     </div>

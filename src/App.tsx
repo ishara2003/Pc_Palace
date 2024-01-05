@@ -11,6 +11,7 @@ import Desktop_Main_Content from "./components/Desktop_Content/Desktop_Main_Cont
 import Components_Main_Content from "./components/Components/Components_Main_Content.tsx";
 import Component_Catagorees_Motherboard from "./components/Components/Motherboard/Component_Catagorees_Motherboard.tsx";
 import React from "react";
+import Gaming_Main_Content from "./components/Gaming/Gaming_Main_Content.tsx";
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
                     <Route path={"/laptop"} element={<LapTop_Main_Content/>}/>
                     <Route path={"/desktop"} element={<Desktop_Main_Content/>}/>
                     <Route path={"/components"} element={<Components_Main_Content/>}/>
-                    <Route path={"/components/motherboard"} element={ <Component_Catagorees_Motherboard/>}/>
+                    <Route path={"/gaming"} element={<Gaming_Main_Content/>}></Route>
 
                 </Routes>
 

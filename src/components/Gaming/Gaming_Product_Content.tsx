@@ -11,7 +11,7 @@ interface Data {
     discount_price: string
 }
 
-function Component_Product_Content() {
+function Gaming_Product_Content() {
     const [data, setProps] = useState<Data[]>([]);
 
     const fetchData = (): void => {
@@ -50,4 +50,4 @@ function Component_Product_Content() {
     );
 }
 
-export default Component_Product_Content;
+export default Gaming_Product_Content;
