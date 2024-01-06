@@ -1,50 +1,34 @@
-import React, { useEffect, useRef } from "react";
-import "toolcool-range-slider/dist/toolcool-range-slider.min.js";
-import 'toolcool-range-slider';
-import '../Components/CSS/Filter_CSS.css'
-interface RangeSliderProps {
-    value1: string;
-    value2: string;
-    "generate-labels": string;
-}
+import React, { useState } from "react";
+import RangeSlider from "react-range-slider-input";
+import "react-range-slider-input/dist/style.css";
+import './CSS/Laptop_Main_Contnt_CSS.css';
 
-function Price() {
-    const rangeSliderRef = useRef<any>();
+export default function Price() {
+    const [minprice, setMinprice] = useState<number>(10000);
+    const [maxPrice, setMaxPrice] = useState<number>(40000);
 
-    useEffect(() => {
-        const handleSliderUpdate = (event: CustomEvent) => {
-            const { value1, value2 } = event.detail;
-
-            // Do something with the updated values
-            console.log("Slider values updated:", value1, value2);
-        };
-
-        // Initialize the range slider when the component mounts
-        if (rangeSliderRef.current) {
-            rangeSliderRef.current.rtl = true;
-
-            // Add event listener for slider update
-            rangeSliderRef.current.addEventListener('update', handleSliderUpdate);
-        }
-
-        // Cleanup function (optional)
-        return () => {
-            // If needed, perform cleanup or remove event listeners when the component unmounts
-            if (rangeSliderRef.current) {
-                rangeSliderRef.current.removeEventListener('update', handleSliderUpdate);
-            }
-        };
-    }, []);
+    const handleInputChange = (value:any) => {
+        console.log(value[0]);
+        // value.toFixed(1)
+         setMinprice(value[0]);
+         setMaxPrice(value[1])
+    };
 
     return (
-        <div className={'filter_css'}>
-            <tc-range-slider
-                ref={rangeSliderRef}
+        <div className={'mb-8'}>
+            <RangeSlider
+                id="range-slider-gradient"
+                className="margin-lg"
+                step={"any"}
+                onInput={handleInputChange}
+                max={10000000}
+            />
 
-                generate-labels="true"
-            ></tc-range-slider>
+            <h1 className={'text-amber-50'}>MIN PRICE: {minprice.toFixed(0)}</h1>
+            <br/>
+            <h1 className={'text-amber-50'}>MAX PRICE: {maxPrice.toFixed(0)}</h1>
         </div>
     );
 }
 
-export default Price;
+// mongodb+srv://sankalpaishara4:<My Password here password (Ishara076>@sankalpa.fwqh9gc.mongodb.net/?retryWrites=true&w=majority

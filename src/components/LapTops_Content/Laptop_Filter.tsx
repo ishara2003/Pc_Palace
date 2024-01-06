@@ -4,6 +4,7 @@ import Laptop_Filter_by_Processor from "./Laptop_Filter_by_Processor.tsx";
 import Laptop_Filter_by_GPU from "./Laptop_Filter_by_GPU.tsx";
 import Laptop_Filter_by_Memory from "./Laptop_Filter_by_Memory.tsx";
 import Price from "./Price.tsx";
+import SuperSimple from "./Price.tsx";
 
 function Laptop_Filter() {
 
