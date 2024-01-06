@@ -1,11 +1,13 @@
 import Component_Catagorees_Cooler_Filter_by_Brand from "./Component_Catagorees_Cooler_Filter_by_Brand.tsx";
 import Component_Catagorees_Cooler_Filters_by_Cooler_Type
     from "./Component_Catagorees_Cooler_Filters_by_Cooler_Type.tsx";
+import Component_Catagorees_Cooler_Filter_by_Price from "./Component_Catagorees_Cooler_Filter_by_Price.tsx";
 
 function Component_Catagorees_Cooler_Filters() {
 
     return(
         <div className={''}>
+            <Component_Catagorees_Cooler_Filter_by_Price/>
             <Component_Catagorees_Cooler_Filter_by_Brand/>
             <Component_Catagorees_Cooler_Filters_by_Cooler_Type/>
         </div>

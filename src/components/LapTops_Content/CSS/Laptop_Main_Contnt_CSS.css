@@ -18,7 +18,7 @@
 .slider .thumb {
     height: 20px;
     width: 20px;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     background-color: #007bff;
     cursor: grab;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -59,7 +59,7 @@ body {
 }
 
 .range-slider {
-    width: 480px;
+    width: 380px;
     margin: 24px auto 0;
 }
 
@@ -147,22 +147,24 @@ body {
 
 /* Gradient Range Slider */
 #range-slider-gradient {
-    height: 24px;
-    border-radius: 12px;
+    height: 8px;
+    border-radius: 3px;
     background: #353644;
 }
 
 #range-slider-gradient .range-slider__thumb {
-    border: 6px solid #fff;
+    border: 3px solid #0b3457;
     box-sizing: border-box;
 }
 
 #range-slider-gradient .range-slider__thumb[data-lower] {
-    background: #0073e6;
+    background: #00ffde;
+    border-radius: 6px;
 }
 
 #range-slider-gradient .range-slider__thumb[data-upper] {
-    background: #ee2c2c;
+    background: #00ffde;
+    border-radius: 6px;
 }
 
 #range-slider-gradient .range-slider__range {
@@ -205,10 +207,7 @@ body {
     width: 0;
 }
 .single-thumb .range-slider__range {
-    border-radius: 6px;
+    /*border-radius: 6px;*/
 }
 
-/* Vertical Range Slider */
-.vertical-slider[data-vertical] {
-    height: 180px;
-}
+

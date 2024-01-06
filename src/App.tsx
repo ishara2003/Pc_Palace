@@ -12,6 +12,8 @@ import Components_Main_Content from "./components/Components/Components_Main_Con
 import Component_Catagorees_Motherboard from "./components/Components/Motherboard/Component_Catagorees_Motherboard.tsx";
 import React from "react";
 import Gaming_Main_Content from "./components/Gaming/Gaming_Main_Content.tsx";
+import Printer_Product_Content from "./components/Printer_Content/Printer_Product_Content.tsx";
+import Printer_Main_Content from "./components/Printer_Content/Printer_Main_Content.tsx";
 
 function App() {
 
@@ -31,6 +33,7 @@ function App() {
                     <Route path={"/desktop"} element={<Desktop_Main_Content/>}/>
                     <Route path={"/components"} element={<Components_Main_Content/>}/>
                     <Route path={"/gaming"} element={<Gaming_Main_Content/>}></Route>
+                    <Route path={"/printers"} element={<Printer_Main_Content/>}></Route>
 
                 </Routes>
 

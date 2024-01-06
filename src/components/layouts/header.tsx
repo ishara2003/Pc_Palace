@@ -86,9 +86,11 @@ function Header() {
                     </div>
 
                     <div className={'w-full  ml-1'}>
+                        <Link to={'/printers'}>
                         <button className={'w-full h-[46px] header_nav_bar header_nav_bar_color focus:outline-none'}>
                             <b>PRINTERS</b>
                         </button>
+                        </Link>
                     </div>
 
                     <div className={'w-full  ml-1 mr-1'}>

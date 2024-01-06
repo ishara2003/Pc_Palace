@@ -4,6 +4,7 @@ import Gaming_Laptop_Filter_by_Processor from "./Gaming_Laptop_Filter_by_Process
 import Gaming_Laptop_Filter_by_GPU from "./Gaming_Laptop_Filter_by_GPU.tsx";
 import Gaming_Laptop_Filter_by_Memory from "./Gaming_Laptop_Filter_by_Memory.tsx";
 import Gaming_Laptop_Filer_by_Brand from "./Gaming_Laptop_Filter_by_Brand.tsx";
+import Gaming_Laptop_Filter_by_Price from "./Gaming_Laptop_Filter_by_Price.tsx";
 
 
 function Gaming_Laptop_Filter() {
@@ -12,7 +13,7 @@ function Gaming_Laptop_Filter() {
 
         <div>
 
-
+            <Gaming_Laptop_Filter_by_Price/>
 
             <Gaming_Laptop_Filer_by_Brand/>
 

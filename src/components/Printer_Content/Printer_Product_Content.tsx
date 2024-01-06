@@ -1,7 +1,8 @@
 import Special_Offers_Products from "../All_Type_Products/Special_Offers_Products.tsx";
-import './CSS/MainContent.css';
+// import './CSS/MainContent.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Printer_Product from "../All_Type_Products/Printer_Product.tsx";
 
 interface Data {
     id: number,
@@ -11,7 +12,7 @@ interface Data {
     discount_price: string
 }
 
-function Product_Content() {
+function Printer_Product_Content() {
     const [data, setProps] = useState<Data[]>([]);
 
     const fetchData = (): void => {
@@ -29,16 +30,16 @@ function Product_Content() {
     }, []);
 
     return (
-        <div className={'special_offer mt-6 text-6xl '}>
-            <h1 className={''}><b><u>SPECIAL OFFERS</u></b></h1>
+        <div className={' mt-6 text-4xl '}>
+
             <div className={'w-full mt-6'}>
                 <div
-                    className={'grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-fit relative m-auto'}>
+                    className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
                             // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Special_Offers_Products title={r.title} content={r.body} discount_price={r.id}
-                                                            fixed_price={r.id}/>
+                            return <Printer_Product title={r.title} content={r.body} discount_price={r.id}
+                                            fixed_price={r.id}/>
                         })
                     }
 
@@ -50,4 +51,4 @@ function Product_Content() {
     );
 }
 
-export default Product_Content;
+export default Printer_Product_Content;

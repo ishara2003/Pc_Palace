@@ -1,7 +1,6 @@
-import './CSS/Product_CSS.css'
 import React, {useState} from "react";
 import {FaStar} from "react-icons/fa";
-
+import '../Main_Content/CSS/Product_CSS.css'
 
 interface Data {
 
@@ -11,17 +10,15 @@ interface Data {
     content: string
 }
 
-function Product({title, content, fixed_price, discount_price}: Data) {
+function Laptop_Product({title, content, fixed_price, discount_price}: Data) {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
 
 
     const check = () => {
-        console.log("Clicked Product");
+        console.log("Clicked Special_Offers_Products");
 
     }
-
-
 
     return (
 
@@ -30,9 +27,9 @@ function Product({title, content, fixed_price, discount_price}: Data) {
         <div className={'hover_effect_for_all_click_events m-5'}>
             <button onClick={check}>
             <div className={'h-1/2 w-full '}>
-                <img src="src/assets/products/PC.png" alt="Pc_001"/>
+                <img src="src/assets/products/lap.png" alt="Pc_001"/>
 
-                <div className={'text-left product_text'}>
+                <div className={'product_text'}>
                     <p className={'text-2xl'}>{title}</p>
                     <p className={'text-2xl'}>Reviews</p>
 
@@ -61,4 +58,4 @@ function Product({title, content, fixed_price, discount_price}: Data) {
     );
 }
 
-export default Product;
+export default Laptop_Product;

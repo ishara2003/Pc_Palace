@@ -1,15 +1,18 @@
 import {BiSolidSearch} from "react-icons/bi";
-import './CSS/MainContent.css'
+import '../Main_Content/CSS/MainContent.css'
 
 interface Props {
 
-    backgroundImage: any,
+    image: any,
     productImage: any,
     title: string
 
 }
 
-function Clip_Board_Products({image, productImage, title}) {
+function Clip_Board_Products({image, productImage, title}: Props) {
+    /**
+     * i didnt tell to the funtion that theeas are Props type
+     */
 
     return (
         <div className={'flex items-center w-full h-[695.25px]'}>

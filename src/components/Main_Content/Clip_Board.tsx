@@ -1,8 +1,8 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Clip_Board_Products from "./Clip_Board_Products.tsx";
+import Clip_Board_Products from "../All_Type_Products/Clip_Board_Products.tsx";
 import React, {useEffect, useState} from "react";
-import Product from "./Product.tsx"; // Import the carousel styles
+import Special_Offers_Products from "../All_Type_Products/Special_Offers_Products.tsx"; // Import the carousel styles
 
 
 interface Data {

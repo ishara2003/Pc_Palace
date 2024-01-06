@@ -1,9 +1,9 @@
-import Product from "../Main_Content/Product.tsx";
+import Special_Offers_Products from "../All_Type_Products/Special_Offers_Products.tsx";
 // import './CSS/MainContent.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
-import Lapto_Product from "./Laptop_Product.tsx";
-import Laptop_Product from "./Laptop_Product.tsx";
+import Lapto_Product from "../All_Type_Products/Laptop_Product.tsx";
+import Laptop_Product from "../All_Type_Products/Laptop_Product.tsx";
 
 interface Data {
     id: number,
@@ -38,7 +38,7 @@ function Laptop_Product_Content() {
                     className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
-                            // return <Product title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
+                            // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
                             return <Laptop_Product title={r.title} content={r.body} discount_price={r.id}
                                             fixed_price={r.id}/>
                         })
