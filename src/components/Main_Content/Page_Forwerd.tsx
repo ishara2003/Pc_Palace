@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Special_Offers_Products from "../All_Type_Products/Special_Offers_Products.tsx";
-import product from "../All_Type_Products/Special_Offers_Products.tsx";
+
 
 function CardList () {
   const [startIndex, setStartIndex] = useState(0);

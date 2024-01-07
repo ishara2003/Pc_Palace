@@ -1,9 +1,6 @@
-
-// import './CSS/MainContent.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Product from "../../All_Type_Products/Product.tsx";
-
 
 interface Data {
     id: number,
@@ -13,7 +10,7 @@ interface Data {
     discount_price: string
 }
 
-function Gaming_Laptop_Product_Content() {
+function Gaming_Monitor_Product_Content() {
     const [data, setProps] = useState<Data[]>([]);
 
     const fetchData = (): void => {
@@ -35,12 +32,12 @@ function Gaming_Laptop_Product_Content() {
 
             <div className={'w-full mt-6'}>
                 <div
-                    className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
+                    className={'grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
                             // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Product title={r.title} productImage={"src/assets/products/lap.png"} discount_price={r.id}
-                                                          fixed_price={r.id}/>
+                            return <Product title={r.title} productImage={"src/assets/products/Monitors.png"} discount_price={r.id}
+                                                            fixed_price={r.id}/>
                         })
                     }
 
@@ -52,4 +49,4 @@ function Gaming_Laptop_Product_Content() {
     );
 }
 
-export default Gaming_Laptop_Product_Content;
+export default Gaming_Monitor_Product_Content;

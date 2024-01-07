@@ -13,6 +13,17 @@ import Component_Catagorees_PowerSupply from "./Power Supply/Component_Catagoree
 import Component_Catagorees_Cooler from "./Cooler/Component_Catagorees_Cooler.tsx";
 import Component_Catagorees_Casing from "./Casing/Component_Catagorees_Casing.tsx";
 import Component_Catagorees_Monitor from "./Monitor/Component_Catagorees_Monitor.tsx";
+import Component_Catogoree_Casing_Product_Content from "./Casing/Component_Catogoree_Casing_Product_Content.tsx";
+import Component_Catogoree_Processor_Product_Content
+    from "./Processor/Component_Catogoree_Processor_Product_Content.tsx";
+import Component_Catogoree_Motherboard_Product_Content
+    from "./Motherboard/Component_Catogoree_Motherboard_Product_Content.tsx";
+import Component_Catogoree_RAM_Product_Content from "./Memory/Component_Catogoree_RAM_Product_Content.tsx";
+import Component_Catogoree_GPU_Product_Content from "./GPU/Component_Catogoree_GPU_Product_Content.tsx";
+import Component_Catogoree_Storage_Product_Content from "./Storage/Component_Catogoree_Storage_Product_Content.tsx";
+import Component_Catogoree_CPU_Product_Content from "./Power Supply/Component_Catogoree_CPU_Product_Content.tsx";
+import Component_Catogoree_Cooler_Product_Content from "./Cooler/Component_Catogoree_Cooler_Product_Content.tsx";
+import Component_Catogoree_Monitor_Product_Content from "./Monitor/Component_Catogoree_Monitor_Product_Content.tsx";
 
 function Components_Main_Content() {
 
@@ -126,7 +137,7 @@ function Components_Main_Content() {
                         <Component_Catagorees_Casing/>
                     }
 
-{currentCategory == "MONITOR" &&
+                    {currentCategory == "MONITOR" &&
                         <Component_Catagorees_Monitor/>
                     }
 
@@ -136,7 +147,45 @@ function Components_Main_Content() {
 
                 <div className={'w-full h-full border-l-[#0af3f3] border-l-4 p-2 '}>
 
-                    <Component_Product_Content/>
+                    {currentCategory == "PROCESSOR" &&
+                        <Component_Catogoree_Processor_Product_Content/>
+                    }
+
+                    {currentCategory == "MOTHERBOARDS" &&
+                        <Component_Catogoree_Motherboard_Product_Content/>
+                    }
+
+                    {currentCategory == "MEMORY" &&
+                        <Component_Catogoree_RAM_Product_Content/>
+                    }
+
+                    {currentCategory == "GRAPHIC CARDS" &&
+                        <Component_Catogoree_GPU_Product_Content/>
+                    }
+
+                    {currentCategory == "STORAGES" &&
+                        <Component_Catogoree_Storage_Product_Content/>
+                    }
+
+                    {currentCategory == "POWER SUPPLY" &&
+                        <Component_Catogoree_CPU_Product_Content/>
+                    }
+
+                    {currentCategory == "COOLERS" &&
+                        <Component_Catogoree_Cooler_Product_Content/>
+                    }
+
+
+                    {currentCategory == "CASING" &&
+                        <Component_Catogoree_Casing_Product_Content/>
+                    }
+
+                    {currentCategory == "MONITOR" &&
+                        <Component_Catogoree_Monitor_Product_Content/>
+                    }
+                    {currentCategory == "" &&
+                        <Component_Catogoree_Monitor_Product_Content/>
+                    }
 
                 </div>
             </div>

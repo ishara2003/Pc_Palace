@@ -1,6 +1,6 @@
 import Clip_Board from "./Clip_Board.tsx";
 import Product_Content from "./Product_Content.tsx";
-import CardList from "./Page_Forwerd.tsx";
+
 import Page_Forwerd from "./Page_Forwerd.tsx";
 
 function Main_Content() {

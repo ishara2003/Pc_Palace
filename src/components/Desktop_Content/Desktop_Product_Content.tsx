@@ -1,7 +1,6 @@
-import Special_Offers_Products from "../All_Type_Products/Special_Offers_Products.tsx";
-// import './CSS/MainContent.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Product from "../All_Type_Products/Product.tsx";
 
 interface Data {
     id: number,
@@ -37,7 +36,7 @@ function Desktop_Product_Content() {
                     {
                         data.map((r: Data, index: number) => {
                             // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Special_Offers_Products title={r.title} content={r.body} discount_price={r.id}
+                            return <Product title={r.title} productImage={"src/assets/products/Desktops.png"} discount_price={r.id}
                                                             fixed_price={r.id}/>
                         })
                     }

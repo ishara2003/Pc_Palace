@@ -1,18 +1,18 @@
 import React, {useState} from "react";
 import {FaStar} from "react-icons/fa";
-import '../../Main_Content/CSS/Product_CSS.css'
+import '../Main_Content/CSS/Product_CSS.css'
 
 interface Data {
 
     title: string,
     fixed_price: number,
     discount_price: number,
-    content: string
+    productImage: string
 }
 
-function Gaming_Laptop_Product({title, content, fixed_price, discount_price}: Data) {
-    const [rating, setRating] = useState(null);
-    const [hover, setHover] = useState(null);
+function Product({title, productImage, fixed_price, discount_price}: Data) {
+    const [rating, setRating] = useState<any>(null);
+    const [hover, setHover] = useState<any>(null);
 
 
     const check = () => {
@@ -27,7 +27,7 @@ function Gaming_Laptop_Product({title, content, fixed_price, discount_price}: Da
         <div className={'hover_effect_for_all_click_events m-5'}>
             <button onClick={check}>
             <div className={'h-1/2 w-full '}>
-                <img src="src/assets/products/lap.png" alt="Pc_001"/>
+                <img src={productImage} alt="Pc_001"/>
 
                 <div className={'product_text'}>
                     <p className={'text-2xl'}>{title}</p>
@@ -41,7 +41,7 @@ function Gaming_Laptop_Product({title, content, fixed_price, discount_price}: Da
                                     <input type="radio" name="rating" value={current}
                                            onClick={() => setRating(rating)}/>
                                     <FaStar className={'star'} size={15}
-                                            color={current <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+                                            color={current <= (hover || rating) ? "#00ffde" : "#e4e5e9"}
                                             onClick={() => setHover(current)}
                                     />
                                 </label>
@@ -58,4 +58,4 @@ function Gaming_Laptop_Product({title, content, fixed_price, discount_price}: Da
     );
 }
 
-export default Gaming_Laptop_Product;
+export default Product;

@@ -1,9 +1,13 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import Gaming_Product_Content from "./Gaming_Product_Content.tsx";
 import Gaming_Desktop_Main_Content from "./Gaming_Desktop/Gaming_Desktop_Main_Content.tsx";
 import Gaming_Monitor_Main_Content from "./Gaming_Monitors/Gaming_Monitor_Main_Content.tsx";
 import Gaming_LapTop_Main_Content from "./Gaming_Laptops/Gaming_LapTop_Main_Content.tsx";
 import Gaming_Accessories_Main_Content from "./Gaming_Accessories/Gaming_Accessories_Main_Content.tsx";
+import Gaming_Desktop_Product_Content from "./Gaming_Desktop/Gaming_Desktop_Product_Content.tsx";
+import Gaming_Monitor_Product_Content from "./Gaming_Monitors/Gaming_Monitor_Product_Content.tsx";
+import Gaming_accessories_Product_Content from "./Gaming_Accessories/Gaming_accessories_Product_Content.tsx";
+import Gaming_Laptop_Product_Content from "./Gaming_Laptops/Gaming_Laptop_Product_Content.tsx";
 
 
 function Gaming_Main_Content() {
@@ -72,11 +76,10 @@ function Gaming_Main_Content() {
                         <Gaming_Monitor_Main_Content/>
                     }
 
-                     {gamingCurrentCategory == "ACCESSORIES" &&
+                    {gamingCurrentCategory == "ACCESSORIES" &&
 
                         <Gaming_Accessories_Main_Content/>
                     }
-                    
 
 
                     {gamingCurrentCategory == "LAPTOPS" &&
@@ -89,7 +92,30 @@ function Gaming_Main_Content() {
 
                 <div className={'w-full h-full border-l-[#0af3f3] border-l-4 p-2 '}>
 
-                    <Gaming_Product_Content/>
+                    {gamingCurrentCategory == "DESKTOPS" &&
+
+                        <Gaming_Desktop_Product_Content/>
+                    }
+
+                    {gamingCurrentCategory == "MONITORS" &&
+
+                        <Gaming_Monitor_Product_Content/>
+                    }
+
+                    {gamingCurrentCategory == "ACCESSORIES" &&
+
+                        <Gaming_accessories_Product_Content/>
+                    }
+
+                    {gamingCurrentCategory == "LAPTOPS" &&
+
+                        <Gaming_Laptop_Product_Content/>
+                    }
+
+                    {gamingCurrentCategory == "" &&
+
+                        <Gaming_Laptop_Product_Content/>
+                    }
 
                 </div>
             </div>
