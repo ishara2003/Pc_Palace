@@ -20,6 +20,7 @@ function Component_Product_Content() {
             setProps(response.data);
         }).catch(err => {
             console.log(err);
+            console.log("checking");
         });
     };
 
