@@ -19,3 +19,22 @@
 
     border-image: linear-gradient(to right, #0af3f3, #007bff)1;
 }
+
+.pimage{
+    width: 450px;
+    height: 520px;
+    transition: .5s ease-in-out;
+    position: relative;
+}
+
+
+.pimage:hover{
+
+    /*@apply w-1/3 h-[570px];*/
+
+    width: 550px;
+    height: 620px;
+    position: relative;
+    /*left: 200px;*/
+
+}

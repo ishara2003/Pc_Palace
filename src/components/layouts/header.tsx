@@ -1,18 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import '../Main_Content/CSS/MainContent.css';
-import { FaSearchengin } from "react-icons/fa6";
 import {FaRegUserCircle} from "react-icons/fa";
 import './CSS/FooterCss.css';
 import { BiSolidDownArrow } from "react-icons/bi";
+import { IoIosSearch } from "react-icons/io";
+
+
 
 
 
 
 
 function Header() {
+    // State to manage the visibility of the div
+    const [showDiv, setShowDiv] = useState(false);
 
+    // Function to handle the button click
+    const handleClick = () => {
+        console.log("Clicked");
+        // Set showDiv to true when the button is clicked
+        setShowDiv(true);
+    };
     return (
 
         <div className={'mb-3 bg-[#002E35]'}>
@@ -31,14 +41,19 @@ function Header() {
 
                         <div className={'absolute right-0 top-0 h-[46px] flex items-center pr-3 header_nav_bar header_nav_bar_color rounded-e-3xl w-[6vw]'}>
 
-                            <FaSearchengin className={'w-[2vw] h-[40px] absolute right-1/3 cursor-pointer'} />
+                            <IoIosSearch className={'w-[2vw] h-[40px] absolute right-1/3 cursor-pointer'} />
                         </div>
 
                     </div>
                     <ul className={'flex gap-[3vw] mr-10'}>
 
 
-                        <li><FaRegUserCircle className={'w-[40px] h-[40px] cart_SVG'} /></li>
+                        <li onClick={handleClick}>
+                            <FaRegUserCircle
+                                className={'w-[40px] h-[40px] cart_SVG'}
+                            />
+                            {showDiv && <div className={" absolute w-1/4 h-48 border-2"}>New div created after button click</div>}
+                        </li>
                         <li><FaCartShopping className={'w-[40px] h-[40px] cart_SVG'} /></li>
 
                     </ul>

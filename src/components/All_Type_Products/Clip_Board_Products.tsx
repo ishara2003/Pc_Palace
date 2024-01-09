@@ -15,20 +15,18 @@ function Clip_Board_Products({image, productImage, title}: Props) {
      */
 
     return (
-        <div className={'flex items-center w-full h-[695.25px]'}>
+        <div className={'flex items-center w-full h-[695.25px] '}>
 
             <img src={image} alt="Image 1"
                  className={'h-[695px] w-fit  absolute'}/>
 
-            <div className={'relative w-1/4 h-[430px] left-60'}>
-                <img src={productImage} alt="Image 1" className={'w-[450px] '}/>
+            <div className={'relative w-full h-[430px] left-40 bottom-3 flex cursor-pointer'}>
+                <img src={productImage} alt="Image 1" className={'pimage'}/>
 
+            <h1 className={'absolute text-8xl right-[500px] w-80'}><b>{title}</b></h1>
             </div>
 
-            <button
-                className={'view_btn '}>
-                <b>VIEW </b><BiSolidSearch className={''}/></button>
-            <h1 className={'relative text-8xl left-[700px] w-96'}><b>{title}</b></h1>
+
 
 
         </div>
