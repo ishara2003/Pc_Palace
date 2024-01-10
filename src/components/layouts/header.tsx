@@ -52,7 +52,7 @@ function Header() {
                             <FaRegUserCircle
                                 className={'w-[40px] h-[40px] cart_SVG'}
                             />
-                            {showDiv && <div className={" absolute w-1/4 h-48 border-2"}>New div created after button click</div>}
+                            {showDiv && <div className={"text-amber-50 absolute w-1/4 h-48 border-2"}>New div created after button click</div>}
                         </li>
                         <li><FaCartShopping className={'w-[40px] h-[40px] cart_SVG'} /></li>
 
