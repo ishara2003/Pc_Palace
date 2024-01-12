@@ -7,10 +7,14 @@ interface Data {
     title: string,
     fixed_price: number,
     discount_price: number,
-    productImage: string
+    file: {
+        filename: string;
+        contentType: string;
+        s3Key: string;
+    };
 }
 
-function Product({title, productImage, fixed_price, discount_price}: Data) {
+function Product({title, file, fixed_price, discount_price}: Data) {
     const [rating, setRating] = useState<any>(null);
     const [hover, setHover] = useState<any>(null);
 
@@ -19,6 +23,8 @@ function Product({title, productImage, fixed_price, discount_price}: Data) {
         console.log("Clicked Special_Offers_Products");
 
     }
+    // Assuming you're using the productImage.s3Key as the filename
+    const imageUrl = `http://localhost:5050/products/images/${file.s3Key}`;
 
     return (
 
@@ -27,7 +33,7 @@ function Product({title, productImage, fixed_price, discount_price}: Data) {
         <div className={'hover_effect_for_all_click_events m-5'}>
             <button onClick={check}>
             <div className={'h-1/2 w-full '}>
-                <img src={productImage} alt="Pc_001"/>
+                <img src={imageUrl} alt="Pc_001"/>
 
                 <div className={'product_text'}>
                     <p className={'text-2xl'}>{title}</p>

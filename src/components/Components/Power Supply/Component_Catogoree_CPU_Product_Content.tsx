@@ -38,8 +38,8 @@ function Component_Catogoree_CPU_Product_Content() {
                     {
                         data.map((r: Data, index: number) => {
                             // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Product title={r.title} productImage={"src/assets/products/Power_Supply.png"} discount_price={r.id}
-                                                            fixed_price={r.id}/>
+                            return <Product title={r.title} file={"src/assets/products/Power_Supply.png"} discount_price={r.id}
+                                            fixed_price={r.id}/>
                         })
                     }
 
