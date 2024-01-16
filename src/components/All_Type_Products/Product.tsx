@@ -24,7 +24,7 @@ function Product({title, file, fixed_price, discount_price}: Data) {
 
     }
     // Assuming you're using the productImage.s3Key as the filename
-    const imageUrl = `http://localhost:5050/products/images/${file.s3Key}`;
+    const imageUrl = `https://pc-palace-images.s3.eu-north-1.amazonaws.com/${file.s3Key}`;
 
     return (
 

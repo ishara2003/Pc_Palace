@@ -1,4 +1,3 @@
-import Special_Offers_Products from "../All_Type_Products/Special_Offers_Products.tsx";
 // import './CSS/MainContent.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -36,11 +35,11 @@ function Component_Product_Content() {
                 <div
                     className={'grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
-                        data.map((r: Data, index: number) => {
+                        /*data.map((r: Data, index: number) => {
                             // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
                             return <Special_Offers_Products title={r.title} content={r.body} discount_price={r.id}
                                                             fixed_price={r.id}/>
-                        })
+                        })*/
                     }
 
 

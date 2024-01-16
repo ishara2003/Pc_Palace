@@ -12,6 +12,7 @@ interface Data {
         s3Key: string;
     },
     price: number,
+    type:string
     // discount_price: string
 }
 
@@ -20,7 +21,8 @@ function Laptop_Product_Content() {
 
     const fetchData = (): void => {
         axios.get('http://localhost:5050/products/all').then(response => {
-            console.log("Sesponce data: "+response.data);
+            console.log("Object data: ",response.data);
+
             setProps(response.data.data);
         }).catch(err => {
             console.log('error : '+err);
@@ -40,8 +42,11 @@ function Laptop_Product_Content() {
                     className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
+                            if (r.type==="LAPTOP"){
                             return <Product title={r.title} file={r.file} discount_price={r.price}
                                             fixed_price={r.id}/>
+                            }
+
                         })
                     }
 

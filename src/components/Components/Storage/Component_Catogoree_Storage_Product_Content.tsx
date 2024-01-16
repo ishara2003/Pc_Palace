@@ -7,9 +7,13 @@ import Product from "../../All_Type_Products/Product.tsx";
 interface Data {
     id: number,
     title: string,
-    body: string,
-    fixed_price: string,
-    discount_price: string
+    file:  {
+        filename: string;
+        contentType: string;
+        s3Key: string;
+    },
+    price: number,
+    type:string
 }
 
 function Component_Catogoree_Storage_Product_Content() {
@@ -37,9 +41,11 @@ function Component_Catogoree_Storage_Product_Content() {
                     className={'grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
-                            // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Product title={r.title} file={"src/assets/products/SSD_Hard.png"} discount_price={r.id}
-                                            fixed_price={r.id}/>
+                            if (r.type === "STORAGE") {
+
+                                return <Product title={r.title} file={r.file} discount_price={r.id}
+                                                fixed_price={r.id}/>
+                            }
                         })
                     }
 

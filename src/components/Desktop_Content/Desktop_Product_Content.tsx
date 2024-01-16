@@ -5,20 +5,25 @@ import Product from "../All_Type_Products/Product.tsx";
 interface Data {
     id: number,
     title: string,
-    body: string,
-    fixed_price: string,
-    discount_price: string
+    file: {
+        filename: string;
+        contentType: string;
+        s3Key: string;
+    },
+    price: number,
+    type: string
 }
 
 function Desktop_Product_Content() {
     const [data, setProps] = useState<Data[]>([]);
 
     const fetchData = (): void => {
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(response => {
-            console.log(response.data);
-            setProps(response.data);
+        axios.get('http://localhost:5050/products/all').then(response => {
+            console.log("Object data: ",response.data);
+
+            setProps(response.data.data);
         }).catch(err => {
-            console.log(err);
+            console.log('error : '+err);
         });
     };
 
@@ -35,12 +40,14 @@ function Desktop_Product_Content() {
                     className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
-                            // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Product title={r.title} file={"src/assets/products/Desktops.png"} discount_price={r.id}
-                                            fixed_price={r.id}/>
-                        })
-                    }
+                            if (r.type === "DESKTOP") {
 
+                                return <Product title={r.title} file={r.file} discount_price={r.price}
+                                                fixed_price={r.id}/>
+                            }
+                        })
+
+                    }
 
 
                 </div>
