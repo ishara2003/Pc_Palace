@@ -39,3 +39,10 @@
     background-position: right;
 
 }
+
+.signInMainDiv{
+
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
