@@ -4,7 +4,7 @@ import axios from "axios";
 import Product from "../All_Type_Products/Product.tsx";
 
 interface Data {
-    id: number,
+    _id: number,
     title: string,
     file:  {
         filename: string;
@@ -44,7 +44,7 @@ function Printer_Product_Content() {
                             if (r.type === "PRINTER") {
 
                                 return <Product title={r.title} file={r.file} discount_price={r.price}
-                                                fixed_price={r.id}/>
+                                                fixed_price={r._id}/>
                             }
                         })
                     }

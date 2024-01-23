@@ -3,7 +3,7 @@ import axios from "axios";
 import Product from "../All_Type_Products/Product.tsx";
 
 interface Data {
-    id: number,
+    _id: number,
     title: string,
     file: {
         filename: string;
@@ -40,10 +40,12 @@ function Desktop_Product_Content() {
                     className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
+                            console.log("ID:",r._id);
+                            
                             if (r.type === "DESKTOP") {
 
                                 return <Product title={r.title} file={r.file} discount_price={r.price}
-                                                fixed_price={r.id}/>
+                                                fixed_price={r._id}/>
                             }
                         })
 

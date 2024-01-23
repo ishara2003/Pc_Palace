@@ -4,7 +4,7 @@ import Product from "../../All_Type_Products/Product.tsx";
 
 
 interface Data {
-    id: number,
+    _id: number,
     title: string,
     file:  {
         filename: string;
@@ -44,7 +44,7 @@ function Gaming_Desktop_Product_Content() {
                             if (r.type === "GAMING DESKTOP") {
 
                                 return <Product title={r.title} file={r.file} discount_price={r.price}
-                                                fixed_price={r.id}/>
+                                                fixed_price={r._id}/>
                             }
                         })
                     }

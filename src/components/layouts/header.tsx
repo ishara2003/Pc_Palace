@@ -54,8 +54,10 @@ function Header() {
                             />
                             {showDiv && <div className={"text-amber-400 absolute w-1/4 h-48 border-2"}>New div created after button click</div>}
                         </li>
+                        <Link to={'/cart'}>
+                        
                         <li><FaCartShopping className={'w-[40px] h-[40px] cart_SVG'} /></li>
-
+                        </Link>
                     </ul>
                 </nav>
 
