@@ -56,7 +56,7 @@ function Footer() {
                     <div className={'w-1/2 h-1/2  ml-[15vw] mb-4 lg:block hidden'}>
                         <a href="https://www.google.com/maps/place/PC+Palace/@6.7188616,80.0589805,17z/data=!4m6!3m5!1s0x3ae24b76eb81a221:0xe852ab5bc564e1e8!8m2!3d6.7190716!4d80.0573085!16s%2Fg%2F11c2q30n8q?entry=ttu">
 
-                            <img className={'w-full h-full rounded shadow-2xl shadow-[#0af3f3]'} src="src/assets/images/img.png" alt="location"/>
+                            <img className={'w-full h-full rounded-xl shadow-2xl shadow-[#0af3f3]'} src="src/assets/images/img.png" alt="location"/>
                         </a>
 
                     </div>

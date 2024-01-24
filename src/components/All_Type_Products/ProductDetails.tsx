@@ -1,9 +1,22 @@
 import { useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import axios from "axios";
 import { HiMiniPlus } from "react-icons/hi2";
 import { HiMinus } from "react-icons/hi";
 import { createSearchParams, useNavigate } from "react-router-dom";
+
+
+interface TData {
+  content: ReactNode;
+  imageUrl: string | undefined;
+  file: {
+    filename: string;
+    contentType: string;
+    s3Key: string;
+  };
+  title?: string;
+}
+
 
 interface Data {
   _id: number;
@@ -39,7 +52,48 @@ interface Data {
   additional_details?: string;
 }
 
+
+
+const data="DATA";
+
+export function saveCustomerDB(new_customer:any) {
+
+  let pre_data = localStorage.getItem(data);
+  let data_arr=[];
+
+
+  if(pre_data){
+      data_arr=JSON.parse(pre_data);
+  }
+
+  data_arr.push(new_customer);
+  console.log(JSON.stringify(new_customer));
+  localStorage.setItem(data,JSON.stringify(data_arr));
+
+}
+
+
 function ProductDetail(props: any) {
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
   const [searchparams] = useSearchParams();
 
   const ItemDetails: String = searchparams.get("productID")!!;
@@ -50,22 +104,20 @@ function ProductDetail(props: any) {
 
   const [data, setProps] = useState<Data[]>([]);
 
- 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const navigateToProductDetailPage = (_id:any )=> {
-        console.log(_id);
-        
+  const navigateToProductDetailPage = (_id: any, total_price: number) => {
+    console.log(_id);
+    console.log(total_price);
 
-       navigate({
-            pathname: '/cart',
-            search  : createSearchParams({
-              productID: _id
-            }).toString()
-          })
-      
-       ;
-    };
+    navigate({
+      pathname: "/cart",
+      search: createSearchParams({
+        productID: _id,
+        qty_vice_price: total_price.toString(),
+      }).toString(),
+    });
+  };
 
   const fetchData = (): void => {
     axios
@@ -124,6 +176,56 @@ function ProductDetail(props: any) {
         const s_size: string = "Screen Size";
         const Ram: string = "Ram";
 
+
+
+        const handleSaveCustomer=()=> {
+
+console.log("To Local Called");
+
+          // let cus_nic = $("#Customer_Id").val();
+          // let cus_name = $("#Customer_Name").val();
+          // let cus_address = $("#Customer_Address").val();
+          // let cus_number = $("#Customer_Number").val();
+      
+          // console.log(cus_nic, cus_name, cus_address, cus_number);
+    
+          // let new_customer = new Customer(cus_nic,cus_name,cus_address,cus_number);
+
+const producttoLocal={
+
+title:title,
+score:score,
+qty_vise_price:qty_vise_price
+
+
+}
+console.log("Product To Local: ",producttoLocal);
+
+
+              saveCustomerDB(producttoLocal);
+      
+      
+      
+        
+      }
+
+
+
+const component_process_handler=(_id: any, total_price: number)=>{
+
+  console.log("All Handler called");
+  
+
+handleSaveCustomer();
+navigateToProductDetailPage(_id,total_price);
+
+}
+
+
+
+
+
+
         const SpesificationValuesChecking = (name: string, value: any) => {
           if (value != "") {
             console.log("Have Val");
@@ -137,28 +239,21 @@ function ProductDetail(props: any) {
           return null;
         };
 
-
-const AdditionalDetailsCheck=(val:any)=>{
-
-  if(val!=null){
-    return (<div className="p-5">
-
-<h1 className="text-2xl p-5">Additional</h1>
+        const AdditionalDetailsCheck = (val: any) => {
+          if (val != null) {
+            return (
+              <div className="p-5">
+                <h1 className="text-2xl p-5">Additional</h1>
                 <ul>
-                {ramParts?.map((part?) => (
-                  <li className="list-disc">{part?.trim()}</li>
-                
-              ))}
-              </ul>
-
-
-    </div> );
-  }
-  return null; 
-
-
-}
-
+                  {ramParts?.map((part?) => (
+                    <li className="list-disc">{part?.trim()}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          }
+          return null;
+        };
 
         //@ts-ignore
         const ramParts = additional_details?.split("=");
@@ -187,7 +282,7 @@ const AdditionalDetailsCheck=(val:any)=>{
                     <li className="p-5">{title}</li>
                     <li className="p-5">Warranty: {warranty}</li>
                     <li className="p-5">LKR: {price.toLocaleString()}</li>
-                    <li className="p-5">Availability: {qty}</li>
+                    {/* <li className="p-5">Availability: {qty}</li> */}
                   </ul>
                 </div>
 
@@ -197,7 +292,10 @@ const AdditionalDetailsCheck=(val:any)=>{
                       <HiMinus />
                     </div>
 
-                    <label htmlFor="" className="pl-10 pr-10">
+                    <label
+                      htmlFor=""
+                      className="pl-7 pr-7 rounded-md border-2 ml-5 mr-5"
+                    >
                       {score}
                     </label>
 
@@ -212,7 +310,12 @@ const AdditionalDetailsCheck=(val:any)=>{
                 </div>
 
                 <div className="buttonDiv flex items-center justify-center">
-                  <button className="bg-[#0a13f3] w-28 h-8 rounded-md" onClick = {()=>navigateToProductDetailPage(id)}>
+                  <button
+                    className="bg-[#0a13f3] w-28 h-8 rounded-md"
+                    onClick={() =>
+                      component_process_handler(id,qty_vise_price)
+                    }
+                  >
                     ADD TO CART
                   </button>
                 </div>
@@ -231,9 +334,7 @@ const AdditionalDetailsCheck=(val:any)=>{
               </div>
 
               <div className="w-full text-left p-5">
-
                 {AdditionalDetailsCheck(additional_details)}
-               
               </div>
             </div>
           </div>
