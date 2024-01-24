@@ -42,7 +42,14 @@
 
 .signInMainDiv{
 
+    @apply w-[99vw] h-[104vh];
 
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(10px);
+    color:white;
     overflow-x: hidden;
-    overflow-y: hidden;
+    position: absolute;
+    left:0;
+    z-index: 99999999;
+  
 }
