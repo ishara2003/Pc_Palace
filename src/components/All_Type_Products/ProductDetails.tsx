@@ -6,17 +6,6 @@ import { HiMinus } from "react-icons/hi";
 import { createSearchParams, useNavigate } from "react-router-dom";
 
 
-interface TData {
-  content: ReactNode;
-  imageUrl: string | undefined;
-  file: {
-    filename: string;
-    contentType: string;
-    s3Key: string;
-  };
-  title?: string;
-}
-
 
 interface Data {
   _id: number;
@@ -52,53 +41,38 @@ interface Data {
   additional_details?: string;
 }
 
+const data = "DATA";
 
-
-const data="DATA";
-
-export function saveCustomerDB(new_customer:any) {
-
+export function saveCustomerDB(new_customer: any) {
   let pre_data = localStorage.getItem(data);
-  let data_arr=[];
+  let data_arr = [];
 
+  console.log("Local Data get from Product Detail Component : ", pre_data);
 
-  if(pre_data){
-      data_arr=JSON.parse(pre_data);
+  if (pre_data) {
+    data_arr = JSON.parse(pre_data);
   }
+  // Check for duplicates before adding the new item
+  const isDuplicate = data_arr.some(
+    (item: any) => item._id === new_customer._id
+  );
 
-  data_arr.push(new_customer);
-  console.log(JSON.stringify(new_customer));
-  localStorage.setItem(data,JSON.stringify(data_arr));
-
+  if (!isDuplicate) {
+    data_arr.push(new_customer);
+    localStorage.setItem(data, JSON.stringify(data_arr));
+    console.log("Item added to local storage:", new_customer);
+  } else {
+    console.log("Duplicate item detected. Not added to local storage.");
+  }
 }
 
-
 function ProductDetail(props: any) {
-
-
-
-
-
-
-
-
-
-
   
-
-
-
-
-
-
-
-
-
   const [searchparams] = useSearchParams();
 
   const ItemDetails: String = searchparams.get("productID")!!;
 
-  console.log("Data : ", ItemDetails);
+  // console.log("Data : ", ItemDetails);
 
   // const productData = props.location?.state?.data;
 
@@ -106,16 +80,16 @@ function ProductDetail(props: any) {
 
   const navigate = useNavigate();
 
-  const navigateToProductDetailPage = (_id: any, total_price: number) => {
-    console.log(_id);
-    console.log(total_price);
+  const navigateToProductDetailPage = () => {
+    // console.log(_id);
+    // console.log(total_price);
 
     navigate({
       pathname: "/cart",
-      search: createSearchParams({
-        productID: _id,
-        qty_vice_price: total_price.toString(),
-      }).toString(),
+      // search: createSearchParams({
+      //   productID: _id,
+      //   qty_vice_price: total_price.toString(),
+      // }).toString(),
     });
   };
 
@@ -157,6 +131,7 @@ function ProductDetail(props: any) {
         const id = r._id;
         const title = r.title;
         const price = r.price;
+        const file = r.file.s3Key;
         const qty = r.qty;
         const manufacture = r.manufacture;
         const processor = r.processor;
@@ -170,61 +145,37 @@ function ProductDetail(props: any) {
 
         const qty_vise_price = score * price;
 
+
+
+
         const manu: string = "Manufacture";
         const vga: string = "VGA";
         const process: string = "Processor";
         const s_size: string = "Screen Size";
         const Ram: string = "Ram";
 
+        const handle_save_on_local_storage = () => {
+          console.log("To Local Called");
 
+          const producttoLocal = {
+            _id: id,
+            title: title,
+            file:file,
+            score: score,
+            qty_vise_price: qty_vise_price,
+            item_price:price
+          };
+          console.log("Product To Local: ", producttoLocal);
 
-        const handleSaveCustomer=()=> {
+          saveCustomerDB(producttoLocal);
+        };
 
-console.log("To Local Called");
+        const component_process_handler = () => {
+          console.log("All Handler called");
 
-          // let cus_nic = $("#Customer_Id").val();
-          // let cus_name = $("#Customer_Name").val();
-          // let cus_address = $("#Customer_Address").val();
-          // let cus_number = $("#Customer_Number").val();
-      
-          // console.log(cus_nic, cus_name, cus_address, cus_number);
-    
-          // let new_customer = new Customer(cus_nic,cus_name,cus_address,cus_number);
-
-const producttoLocal={
-
-title:title,
-score:score,
-qty_vise_price:qty_vise_price
-
-
-}
-console.log("Product To Local: ",producttoLocal);
-
-
-              saveCustomerDB(producttoLocal);
-      
-      
-      
-        
-      }
-
-
-
-const component_process_handler=(_id: any, total_price: number)=>{
-
-  console.log("All Handler called");
-  
-
-handleSaveCustomer();
-navigateToProductDetailPage(_id,total_price);
-
-}
-
-
-
-
-
+          handle_save_on_local_storage();
+          navigateToProductDetailPage();
+        };
 
         const SpesificationValuesChecking = (name: string, value: any) => {
           if (value != "") {
@@ -312,9 +263,7 @@ navigateToProductDetailPage(_id,total_price);
                 <div className="buttonDiv flex items-center justify-center">
                   <button
                     className="bg-[#0a13f3] w-28 h-8 rounded-md"
-                    onClick={() =>
-                      component_process_handler(id,qty_vise_price)
-                    }
+                    onClick={() => component_process_handler()}
                   >
                     ADD TO CART
                   </button>

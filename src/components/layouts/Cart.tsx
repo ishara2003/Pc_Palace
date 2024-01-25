@@ -42,134 +42,133 @@ interface Data {
   additional_details?: string;
 }
 
-interface TData{
-
+interface TData {
   file: {
     filename: string;
     contentType: string;
     s3Key: string;
   };
-  title?:string;
-
-
+  title?: string;
 }
+
+interface TableDataItem {
+  title: string;
+  score: number;
+  qty_vise_price: number;
+}
+
+const local_storage_data = "DATA";
 
 function Cart() {
   const [data, setProps] = useState<Data[]>([]);
-  const [searchparams] = useSearchParams();
+  // const [searchparams] = useSearchParams();
 
-  const ItemDetails: String = searchparams.get("productID")!!;
-  const TotalPrice: String = searchparams.get("qty_vice_price")!!;
+  // const ItemDetails: String = searchparams.get("productID")!!;
+  // const TotalPrice: String = searchparams.get("qty_vice_price")!!;
 
-  console.log(ItemDetails);
-  console.log(TotalPrice);
+  // console.log("Id Passed from ProductDetail Component : ", ItemDetails);
+  // console.log("Total Price Passed from ProductDetail Component : ", TotalPrice);
 
-  const fetchData = (): void => {
-    axios
-      .get(`http://localhost:5050/products/filterbyId?id=${ItemDetails}`)
-      .then((response) => {
-        console.log("Single Product Data: ", response.data);
+  let pre_data = localStorage.getItem(local_storage_data);
+  //@ts-ignore
+  let customer_data_arr = JSON.parse(pre_data);
 
-        setProps(response.data.data);
-      })
-      .catch((err) => {
-        console.log("error : " + err);
+  // const [tableData, setTableData] = useState<TableDataItem[]>([]);
+
+  console.log("Get data from Local Storage : ", customer_data_arr);
+
+  const load_quot_data = () => {
+    let mappedData = null;
+
+    if (customer_data_arr) {
+      console.log("Table Data to Map from Local Storage : ", customer_data_arr);
+
+      mappedData = customer_data_arr.map((item: any, index: any) => {
+        const local_id = item._id;
+        const local_title = item.title;
+        const local_score = item.score;
+        const local_qtyVisePrice = item.qty_vise_price;
+        const local_file = item.file;
+        const local_item_price = item.item_price;
+
+        const table_item_price = local_item_price * local_score;
+
+
+        const [score, setScore] = useState(1);
+
+        const add = () => {
+          setScore(score + 1);
+          console.log("Score adding", score);
+        };
+      
+        const min = () => {
+          if (score != 1) {
+            setScore(score - 1);
+            console.log("Score min", score);
+          }
+        };
+
+        return (
+          <tr
+            key={index}
+            className="mb-4 border p-10 flex items-center justify-between"
+          >
+            <td>
+              <img
+                className="w-[175px]"
+                src={`https://pc-palace-images.s3.eu-north-1.amazonaws.com/${local_file}`}
+              />
+            </td>
+            <td>{local_title}</td>
+            <td>
+              <div className="flex items-center justify-between ">
+                <div onClick={min}>
+                  <HiMinus />
+                </div>
+                <label className="pl-7 pr-7">{local_score + score}</label>
+
+                <div onClick={add}>
+                  <HiMiniPlus />
+                </div>
+              </div>
+            </td>
+            <td className="w-[300px]">{local_qtyVisePrice + (local_item_price*score) }</td>
+          </tr>
+        );
       });
+    } else {
+      console.log("No data found in local storage.");
+    }
+
+    console.log("Load Quot Data's if condition didn't get called");
+    return <tbody>{mappedData}</tbody>;
   };
+
+  // const fetchData = (): void => {
+  //   axios
+  //     .get(`http://localhost:5050/products/filterbyId?id=${ItemDetails}`)
+  //     .then((response) => {
+  //       console.log("Single Product Data: ", response.data);
+
+  //       setProps(response.data.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log("error : " + err);
+  //     });
+  // };
 
   useEffect(() => {
     // console.log("");
-    fetchData();
+    // fetchData();
   }, []);
 
-
-  const [score, setScore] = useState(1);
-
-  const add = () => {
-    setScore(score + 1);
-    console.log("Score adding", score);
-  };
-
-  const min = () => {
-    if (score != 1) {
-      setScore(score - 1);
-      console.log("Score min", score);
-    }
-  };
 
 
   return (
     <div className="p-10">
-      {data.map((r: Data, index: number) => {
-        const id = r._id;
-        const title = r.title;
-        const price = r.price;
-        const qty = r.qty;
-        const manufacture = r.manufacture;
-        const processor = r.processor;
-        const gpu = r.gpu;
-        const storage_type = r.storage_type;
-        const ram = r.ram;
-        const screen_size = r.screen_size;
-        const v_ram = r.v_ram;
-        const warranty = r.warranty;
-        const additional_details = r.additional_details;
-
-
-
-
-       
-
-
-
-
-
-        return (
-          <div>
-            <table className="text-2xl text-white w-full ">
-
-              <tr className="border-2 flex justify-between">
-                <td>
-                  <img
-                    src={`https://pc-palace-images.s3.eu-north-1.amazonaws.com/${r.file.s3Key}`}
-                    className="w-[150px]"
-                    alt={title}
-                  />
-                </td>
-                <td>{title}</td>
-              </tr>
-
-              <tr className="border-2 ">
-                <td>
-                  <img
-                    src={`https://pc-palace-images.s3.eu-north-1.amazonaws.com/${r.file.s3Key}`}
-                    className="w-[150px]"
-                    alt={title}
-                  />
-                </td>
-                <td>{title}</td>
-                <td> <div className="w-full h-36 flex items-center justify-center">
-                    <div onClick={min}>
-                      <HiMinus />
-                    </div>
-
-                    <label
-                      htmlFor=""
-                      className="pl-7 pr-7 rounded-md border-2 ml-5 mr-5"
-                    >
-                      {score}
-                    </label>
-
-                    <div onClick={add}>
-                      <HiMiniPlus />
-                    </div>
-                  </div></td>
-              </tr>
-
-            </table>
-          </div>
-        );
-      })}
+      <div>
+        <table className="text-2xl text-white w-full">{load_quot_data()}</table>
+      </div>
     </div>
   );
 }
