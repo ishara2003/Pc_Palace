@@ -11,7 +11,8 @@ interface Data {
         s3Key: string;
     },
     price: number,
-    type: string
+    type: string,
+    discount:number
 }
 
 function Desktop_Product_Content() {
@@ -38,18 +39,28 @@ function Desktop_Product_Content() {
             <div className={'w-full mt-6'}>
                 <div
                     className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
-                    {
-                        data.map((r: Data, index: number) => {
-                            console.log("ID:",r._id);
-                            
-                            if (r.type === "DESKTOP") {
+                   {data.map((product: Data) => {
+                        console.log(data);
+                        
+const dis:number = product.price - (product.price / product.discount)
+console.log(dis);
 
-                                return <Product title={r.title} file={r.file} discount_price={r.price}
-                                                fixed_price={r._id}/>
+
+                           if (product.type==="DESKTOP"){
+                            if(product.discount){
+                                //@ts-ignore
+                                return <Product title={product.title} file={product.file} discount_price={dis.toFixed(0)}
+                                fixed_price={product.price} _id={product._id} />
+                            }else{
+
+                                return <Product title={product.title} file={product.file} discount_price={product.price}
+                                fixed_price={0} _id={product._id} />
+
                             }
-                        })
+                          
+                            }
 
-                    }
+                         })}
 
 
                 </div>

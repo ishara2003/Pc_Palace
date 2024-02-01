@@ -17,7 +17,7 @@ interface Data {
     };
 }
 
-function Product({title, file, fixed_price, discount_price}: Data) {
+function Product({title, file, fixed_price, discount_price,_id}: Data) {
     const [rating, setRating] = useState<any>(null);
     const [hover, setHover]   = useState<any>(null);
 
@@ -26,7 +26,7 @@ function Product({title, file, fixed_price, discount_price}: Data) {
 
     const navigateToProductDetailPage = (_id:any )=> {
         console.log(_id);
-        const data = { title, fixed_price, discount_price, file };
+        const data = { title, fixed_price, discount_price, file, _id };
 
        navigate({
             pathname: "/productdetails",
@@ -44,7 +44,7 @@ function Product({title, file, fixed_price, discount_price}: Data) {
     return (
 
 
-<div className = {'hover_effect_for_all_click_events m-5 text-end cursor-pointer'} onClick = {()=>navigateToProductDetailPage(fixed_price)}>
+<div className = {'hover_effect_for_all_click_events m-5 text-end cursor-pointer'} onClick = {()=>navigateToProductDetailPage(_id)}>
         <div >
             
             <div className = {'h-1/2 w-full '}>
