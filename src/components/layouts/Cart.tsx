@@ -105,7 +105,7 @@ function Cart() {
 
         const min = () => {
           console.log("Score min before : ", score);
-          if(score>0){
+          if(score>1){
             setScore(score - 1); // Decrement the score only if it's greater than 1
             console.log("Score min", score);
           }

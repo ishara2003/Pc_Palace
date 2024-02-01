@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './CSS/FooterCss.css';
 import {MdAddIcCall} from "react-icons/md";
 import '../Main_Content/CSS/MainContent.css'
@@ -11,6 +11,24 @@ function Footer() {
     const handleLogoClick = () => {
         // Scroll to the top of the page when the logo is clicked
         window.scrollTo({ top: 0, behavior: "smooth" });
+
+        const [score, setScore] = useState(1);
+
+        const add = () => {
+            setScore(score + 1); // Update the score using the current state value 'score'
+           
+          };
+    
+          const min = () => {
+            
+            if(score>1){
+              setScore(score - 1); // Decrement the score only if it's greater than 1
+              
+            }
+          };
+    
+
+
     };
     return (
 

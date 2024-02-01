@@ -74,14 +74,20 @@ interface ProductData {
     discount:number
 }
 
-function Laptop_Product_Content() {
+function Laptop_Product_Content({ score }:any) {
+
+
+    
     const [products, setProducts] = useState<ProductData[]>([]);
-    console.log(products);
+    console.log("products:",products);
+    console.log("function Laptop_Product_Content : ",score);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5050/products/all');
+                const response = await axios.get(`http://localhost:5050/products/filter_by_type?req_type=LAPTOP&size=1&page=${score}`);
                 setProducts(response.data.data);
+                console.log("888484848488484",response.data.data);
+                
                 console.log(products);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -89,7 +95,7 @@ function Laptop_Product_Content() {
         };
 
         fetchData();
-    }, []);
+    }, [score]);
 
     return (
         <div className="mt-6 text-4xl">
