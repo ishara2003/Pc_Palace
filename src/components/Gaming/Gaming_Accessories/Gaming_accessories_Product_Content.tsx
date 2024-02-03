@@ -11,26 +11,28 @@ interface Data {
         s3Key: string;
     },
     price: number,
-    type: string
+    type: string,
+    discount:number
 }
 
-function Gaming_Accessories_Product_Content() {
+function Gaming_Accessories_Product_Content({score}:any) {
     const [data, setProps] = useState<Data[]>([]);
 
-    const fetchData = (): void => {
-        axios.get('http://localhost:5050/products/all').then(response => {
-            console.log("Object data: ",response.data);
-
-            setProps(response.data.data);
-        }).catch(err => {
-            console.log('error : '+err);
-        });
-    };
-
     useEffect(() => {
-        console.log("");
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5050/products/filter_by_type?req_type=GAMING ACCESSORIES&size=16&page=${score}`);
+                setProps(response.data.data);
+                console.log("888484848488484",response.data.data);
+                
+                console.log(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
         fetchData();
-    }, []);
+    }, [score]);
 
     return (
         <div className={' mt-6 text-4xl '}>
@@ -39,25 +41,24 @@ function Gaming_Accessories_Product_Content() {
                 <div
                     className={'grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
-                        // data.map((r: Data, index: number) => {
-                        //     if (r.type === "GAMING ACCESSORIES") {
-
-                        //         return <Product title={r.title} file={r.file} discount_price={r.price}
-                        //                         fixed_price={r._id}/>
-                        //     }
-                        // })
-
                         data.map((r: Data, index: number) => {
-                            console.log("ID:",r._id);
-                            
-                            if (r.type === "GAMING ACCESSORIES") {
+                            const dis:number = r.price - (r.price / r.discount)
+                            console.log(dis);
 
-                                return <Product title={r.title} file={r.file} discount_price={r.price}
-                                                fixed_price={r._id}/>
-                            }
+                            if (r.type==="GAMING ACCESSORIES"){
+                                if(r.discount){
+                                    //@ts-ignore
+                                    return <Product title={r.title} file={r.file} discount_price={dis.toFixed(0)}
+                                    fixed_price={r.price} _id={r._id} />
+                                }else{
+    
+                                    return <Product title={r.title} file={r.file} discount_price={r.price}
+                                    fixed_price={0} _id={r._id} />
+    
+                                }
+                              
+                                }
                         })
-
-
                     }
 
 

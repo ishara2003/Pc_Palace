@@ -9,7 +9,7 @@ interface Data {
     _id           ?: any,
     title          : string,
     fixed_price    : number,
-    discount_price : number,
+    discount_price : any,
     file           : {
         filename   : string;
         contentType: string;
@@ -44,7 +44,7 @@ function Product({title, file, fixed_price, discount_price,_id}: Data) {
     return (
 
 
-<div className = {'hover_effect_for_all_click_events m-5 text-end cursor-pointer'} onClick = {()=>navigateToProductDetailPage(_id)}>
+<div className = {'hover_effect_for_all_click_events m-5 text-end cursor-pointer '} onClick = {()=>navigateToProductDetailPage(_id)}>
         <div >
             
             <div className = {'h-1/2 w-full '}>

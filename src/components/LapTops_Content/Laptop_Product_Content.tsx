@@ -84,7 +84,7 @@ function Laptop_Product_Content({ score }:any) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5050/products/filter_by_type?req_type=LAPTOP&size=1&page=${score}`);
+                const response = await axios.get(`http://localhost:5050/products/filter_by_type?req_type=LAPTOP&size=20&page=${score}`);
                 setProducts(response.data.data);
                 console.log("888484848488484",response.data.data);
                 

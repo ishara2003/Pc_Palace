@@ -16,7 +16,6 @@ import Printer_Product_Content from "./components/Printer_Content/Printer_Produc
 import Printer_Main_Content from "./components/Printer_Content/Printer_Main_Content.tsx";
 import ProductDetail from './components/All_Type_Products/ProductDetails.tsx';
 import Cart from './components/layouts/Cart.tsx';
-import CardList from './components/Main_Content/Page_Forwerd.tsx';
 
 function App() {
 
@@ -42,8 +41,8 @@ function App() {
   
 
                 </Routes>
-{/* <CardList/>       */}
-          <Footer/>
+
+                <Footer/>
 
             </BrowserRouter>
 

@@ -15,11 +15,11 @@ interface Data {
     discount:number
 }
 
-function Desktop_Product_Content() {
+function Desktop_Product_Content({ score }:any) {
     const [data, setProps] = useState<Data[]>([]);
-
+    console.log("function Laptop_Product_Content : ",score);
     const fetchData = (): void => {
-        axios.get('http://localhost:5050/products/all').then(response => {
+        axios.get(`http://localhost:5050/products/filter_by_type?req_type=DESKTOP&size=20&page=${score}`).then(response => {
             console.log("Object data: ",response.data);
 
             setProps(response.data.data);
@@ -31,7 +31,7 @@ function Desktop_Product_Content() {
     useEffect(() => {
         console.log("");
         fetchData();
-    }, []);
+    }, [score]);
 
     return (
         <div className={' mt-6 text-4xl '}>

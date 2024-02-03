@@ -5,7 +5,8 @@ import axios from "axios";
 import Product from "../../All_Type_Products/Product.tsx";
 
 interface Data {
-    id: number,
+    _id: number,
+    discount:number,
     title: string,
     file:  {
         filename: string;
@@ -16,22 +17,25 @@ interface Data {
     type:string
 }
 
-function Component_Catogoree_RAM_Product_Content() {
+function Component_Catogoree_RAM_Product_Content({score}:any) {
     const [data, setProps] = useState<Data[]>([]);
 
-    const fetchData = (): void => {
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(response => {
-            console.log(response.data);
-            setProps(response.data);
-        }).catch(err => {
-            console.log(err);
-        });
-    };
-
     useEffect(() => {
-        console.log("");
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5050/products/filter_by_type?req_type=RAM&size=16&page=${score}`);
+                setProps(response.data.data);
+                console.log("888484848488484",response.data.data);
+                
+                console.log(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
         fetchData();
-    }, []);
+    }, [score]);
+
 
     return (
         <div className={' mt-6 text-4xl '}>
@@ -39,13 +43,24 @@ function Component_Catogoree_RAM_Product_Content() {
             <div className={'w-full mt-6'}>
                 <div
                     className={'grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
-                    {
+                     {
                         data.map((r: Data, index: number) => {
-                            if (r.type === "RAM") {
+                            const dis:number = r.price - (r.price / r.discount)
+                            console.log(dis);
 
-                                return <Product title={r.title} file={r.file} discount_price={r.id}
-                                                fixed_price={r.id}/>
-                            }
+                            if (r.type==="RAM"){
+                                if(r.discount){
+                                    //@ts-ignore
+                                    return <Product title={r.title} file={r.file} discount_price={dis.toFixed(0)}
+                                    fixed_price={r.price} _id={r._id} />
+                                }else{
+    
+                                    return <Product title={r.title} file={r.file} discount_price={r.price}
+                                    fixed_price={0} _id={r._id} />
+    
+                                }
+                              
+                                }
                         })
                     }
 

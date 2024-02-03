@@ -3,6 +3,7 @@ import Desktop_Filter_by_Processor from "./Desktop_Filter_by_Processor.tsx";
 import Desktop_Filter_by_GPU from "./Desktop_Filter_by_GPU.tsx";
 import Desktop_Filter_by_Memory from "./Desktop_Filter_by_Memory.tsx";
 import Desktop_Filter_by_Price from "./Desktop_Filter_by_Price.tsx";
+import Desktop_Filter_by_Workstation from "./Desktop_Filter_by_Workstation.tsx";
 
 function Desktop_Filter() {
 
@@ -12,7 +13,7 @@ function Desktop_Filter() {
 
             <Desktop_Filter_by_Price/>
 
-            <Desktop_Filter_by_Brand/>
+            <Desktop_Filter_by_Workstation/>
 
             <Desktop_Filter_by_Processor/>
 

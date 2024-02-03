@@ -18,13 +18,13 @@ interface ProductData {
     discount:number
     isSpecial:string
 }
-function Product_Content() {
+function Product_Content({score}:any) {
     const [products, setProducts] = useState<ProductData[]>([]);
     console.log(products);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5050/products/all');
+                const response = await axios.get(`http://localhost:5050/products/filter_by_isSpecial?req_special=true&size=10&page=${score}`);
                 setProducts(response.data.data);
                 console.log(products);
             } catch (error) {
@@ -33,7 +33,7 @@ function Product_Content() {
         };
 
         fetchData();
-    }, []);
+    }, [score]);
 
     return (
         <div className={'special_offer mt-6 text-6xl '}>

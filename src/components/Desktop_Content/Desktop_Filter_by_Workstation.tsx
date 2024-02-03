@@ -5,7 +5,7 @@ interface CheckboxData {
     isChecked: boolean;
 }
 
-function Desktop_Filer_by_Brand() {
+function Desktop_Filter_by_Workstation() {
 
     /*        const [isChecked, setIsChecked] = useState(false);
 
@@ -159,4 +159,4 @@ function Desktop_Filer_by_Brand() {
 
 }
 
-export default Desktop_Filer_by_Brand;
+export default Desktop_Filter_by_Workstation;
