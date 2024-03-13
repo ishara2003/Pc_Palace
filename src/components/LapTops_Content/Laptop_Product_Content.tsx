@@ -3,47 +3,126 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Product from "../All_Type_Products/Product.tsx";
 
-interface Data {
-    id: number,
-    title: string,
-    body: string,
-    fixed_price: string,
-    discount_price: string
+// interface Data {
+//     _id: number,
+//     title: string,
+//     file:  {
+//         filename: string;
+//         contentType: string;
+//         s3Key: string;
+//     },
+//     price: number,
+//     type:string
+//     // discount_price: string
+// }
+
+// function Laptop_Product_Content() {
+//     const [data, setProps] = useState<Data[]>([]);
+
+//     const fetchData = (): void => {
+//         axios.get('http://localhost:5050/products/all').then(response => {
+//             console.log("Object data: ",response.data);
+
+//             setProps(response.data.data);
+//         }).catch(err => {
+//             console.log('error : '+err);
+//         });
+//     };
+
+//     useEffect(() => {
+//         console.log("useEffect called");
+//         fetchData();
+//     }, []);
+
+//     return (
+//         <div className={' mt-6 text-4xl '}>
+
+//             <div className={'w-full mt-6'}>
+//                 <div
+//                     className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
+//                     {
+//                         data.map((r: Data, index: number) => {
+//                             if (r.type==="LAPTOP"){
+//                             return <Product title={r.title} file={r.file} discount_price={r.price}
+//                                             fixed_price={r._id}/>
+//                             }
+
+//                         })
+//                     }
+
+
+
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// }
+
+
+interface FileData {
+    filename: string;
+    contentType: string;
+    s3Key: string;
 }
 
-function Laptop_Product_Content() {
-    const [data, setProps] = useState<Data[]>([]);
+interface ProductData {
+    _id: number;
+    title: string;
+    file: FileData;
+    price: number;
+    type: string;
+    discount:number
+}
 
-    const fetchData = (): void => {
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(response => {
-            console.log(response.data);
-            setProps(response.data);
-        }).catch(err => {
-            console.log(err);
-        });
-    };
+function Laptop_Product_Content({ score }:any) {
 
+
+    
+    const [products, setProducts] = useState<ProductData[]>([]);
+    console.log("products:",products);
+    console.log("function Laptop_Product_Content : ",score);
     useEffect(() => {
-        console.log("");
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5050/products/filter_by_type?req_type=LAPTOP&size=20&page=${score}`);
+                setProducts(response.data.data);
+                console.log("888484848488484",response.data.data);
+                
+                console.log(products);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
         fetchData();
-    }, []);
+    }, [score]);
 
     return (
-        <div className={' mt-6 text-4xl '}>
-
-            <div className={'w-full mt-6'}>
-                <div
-                    className={'grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
-                    {
-                        data.map((r: Data, index: number) => {
-                            // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Product title={r.title} productImage={"src/assets/products/lap.png"} discount_price={r.id}
-                                            fixed_price={r.id}/>
-                        })
-                    }
+        <div className="mt-6 text-4xl">
+            <div className="w-full mt-6">
+                <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto">
+                    {products.map((product: ProductData) => {
+                        console.log(products);
+                        
+const dis:number = product.price - (product.price / product.discount)
+console.log(dis);
 
 
+                           if (product.type==="LAPTOP"){
+                            if(product.discount){
+                                //@ts-ignore
+                                return <Product title={product.title} file={product.file} discount_price={dis.toFixed(0)}
+                                fixed_price={product.price} _id={product._id} />
+                            }else{
 
+                                return <Product title={product.title} file={product.file} discount_price={product.price}
+                                fixed_price={0} _id={product._id} />
+
+                            }
+                          
+                            }
+
+                         })}
                 </div>
             </div>
         </div>

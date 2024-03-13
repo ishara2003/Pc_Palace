@@ -1,10 +1,28 @@
+import { useState } from 'react';
+import Page_Forwerd from '../Main_Content/Page_Forwerd.tsx';
 import './CSS/Laptop_Main_Contnt_CSS.css'
-
 import Laptop_Filter from "./Laptop_Filter.tsx";
-
 import Laptop_Product_Content from "./Laptop_Product_Content.tsx";
+import CardList from '../Main_Content/Page_Forwerd.tsx';
 
 function LapTop_Main_Content() {
+
+
+    const [score, setScore] = useState(1); // Lift the state up
+
+    const add = () => {
+        setScore(score + 1);
+        
+    };
+
+    const min = () => {
+        if (score > 1) {
+            setScore(score - 1);
+        }
+    };
+
+
+
     return (
         <div className={'main_content_root p-4 '}>
 
@@ -22,9 +40,13 @@ function LapTop_Main_Content() {
 
                 <div className={'laptop_main_content_border'}>
 
-                    <Laptop_Product_Content/>
+                <Laptop_Product_Content score={score}/> {/* Pass score as prop */}
+                    {/* <Page_Forwerd/> */}
+                    <CardList score={score} add={add} min={min}/> {/* Pass score and functions as props */}
+
 
                 </div>
+
             </div>
 
         </div>

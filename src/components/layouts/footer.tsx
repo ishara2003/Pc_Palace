@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './CSS/FooterCss.css';
 import {MdAddIcCall} from "react-icons/md";
 import '../Main_Content/CSS/MainContent.css'
@@ -11,6 +11,24 @@ function Footer() {
     const handleLogoClick = () => {
         // Scroll to the top of the page when the logo is clicked
         window.scrollTo({ top: 0, behavior: "smooth" });
+
+        const [score, setScore] = useState(1);
+
+        const add = () => {
+            setScore(score + 1); // Update the score using the current state value 'score'
+           
+          };
+    
+          const min = () => {
+            
+            if(score>1){
+              setScore(score - 1); // Decrement the score only if it's greater than 1
+              
+            }
+          };
+    
+
+
     };
     return (
 
@@ -56,7 +74,7 @@ function Footer() {
                     <div className={'w-1/2 h-1/2  ml-[15vw] mb-4 lg:block hidden'}>
                         <a href="https://www.google.com/maps/place/PC+Palace/@6.7188616,80.0589805,17z/data=!4m6!3m5!1s0x3ae24b76eb81a221:0xe852ab5bc564e1e8!8m2!3d6.7190716!4d80.0573085!16s%2Fg%2F11c2q30n8q?entry=ttu">
 
-                            <img className={'w-full h-full rounded shadow-2xl shadow-[#0af3f3]'} src="src/assets/images/img.png" alt="location"/>
+                            <img className={'w-full h-full rounded-xl shadow-2xl shadow-[#0af3f3]'} src="src/assets/images/img.png" alt="location"/>
                         </a>
 
                     </div>
