@@ -15,8 +15,9 @@ interface ProductData {
     file: FileData;
     price: number;
     type: string;
-    discount:number
-    isSpecial:string
+    discount:number;
+    isSpecial:string;
+    caled:any;
 }
 function Product_Content({score}:any) {
     const [products, setProducts] = useState<ProductData[]>([]);
@@ -52,7 +53,7 @@ console.log(dis);
                            
                             if(product._id=product._id){
                                 //@ts-ignore
-                                return <Product title={product.title} file={product.file} discount_price={dis.toFixed(0)}
+                                return <Product title={product.title} file={product.file} discount_price={product.caled.toFixed(0)}
                                 fixed_price={product.price} _id={product._id}/>
                            
                             }

@@ -35,7 +35,7 @@ function Product({title, file, fixed_price, discount_price,_id}: Data) {
             }).toString()
           })
       
-        console.log("data12345", data);
+        // console.log("data12345", data);
     };
    
       // Assuming you're using the productImage.s3Key as the filename

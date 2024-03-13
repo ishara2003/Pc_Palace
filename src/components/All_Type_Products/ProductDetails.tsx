@@ -151,9 +151,7 @@ function ProductDetail(props: any) {
         const s_size: string  = "Screen Size";
         const Ram: string     = "Ram";
 
-          //@ts-ignore
-        const dis_amount: number = (r.price * r.discount) / 100;
-        const dised_price        = r.price - dis_amount;
+
 
         let price2 = 0;
         let  dised_price2 = 0;
@@ -214,13 +212,13 @@ function ProductDetail(props: any) {
 
         const check_if_discount = () => {
             //@ts-ignore
-          if (r.discount > 0) {
+          if (r.discount >= 0) {
             console.log("check_if_discount : ", caled);
               //@ts-ignore
              dised_price2 = caled * score;
             console.log("check_if_discount : ", dised_price2);
             return (
-              <label htmlFor = "">TOTAL: {dised_price2.toLocaleString()}</label>
+              <label htmlFor = "">{dised_price2.toLocaleString()}</label>
             );
           } else {
             console.log("cheach_if_not_discount : ", caled);
@@ -258,7 +256,7 @@ function ProductDetail(props: any) {
                   <ul>
                     <li className = "p-5">{title}</li>
                     <li className = "p-5">Warranty: {warranty}</li>
-                    <li className = "p-5">LKR: {check_if_discount()}</li>
+                    <li className = "p-5">LKR: {caled?.toLocaleString()}</li>
                     {/* <li className="p-5">Availability: {qty}</li> */}
                   </ul>
                 </div>
@@ -282,7 +280,7 @@ function ProductDetail(props: any) {
                   </div>
 
                   <div className = "w-full h-36 flex items-center justify-center">
-                    {check_if_discount()}
+                   TOTAL: {check_if_discount()}
                   </div>
                 </div>
 

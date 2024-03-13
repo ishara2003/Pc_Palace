@@ -22,6 +22,7 @@ interface Data {
   qty: number;
   isSpecial:boolean;
   toClip_board:boolean;
+  caled:any;
 
 }
 

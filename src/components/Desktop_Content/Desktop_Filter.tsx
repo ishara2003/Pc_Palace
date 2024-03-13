@@ -5,7 +5,7 @@ import Desktop_Filter_by_Memory from "./Desktop_Filter_by_Memory.tsx";
 import Desktop_Filter_by_Price from "./Desktop_Filter_by_Price.tsx";
 import Desktop_Filter_by_Workstation from "./Desktop_Filter_by_Workstation.tsx";
 
-function Desktop_Filter() {
+function Desktop_Filter({onWorkstationChange , onProcessorChange , onGpuChange , onRamChange}:any) {
 
     return (
 
@@ -13,13 +13,13 @@ function Desktop_Filter() {
 
             <Desktop_Filter_by_Price/>
 
-            <Desktop_Filter_by_Workstation/>
+            <Desktop_Filter_by_Workstation onWorkstationChange={onWorkstationChange}  />
 
-            <Desktop_Filter_by_Processor/>
+            <Desktop_Filter_by_Processor onProcessorChange={onProcessorChange} />
 
-            <Desktop_Filter_by_GPU/>
+            <Desktop_Filter_by_GPU onGpuChange={onGpuChange} />
 
-            <Desktop_Filter_by_Memory/>
+            <Desktop_Filter_by_Memory onRamChange={onRamChange}/>
 
 
         </div>

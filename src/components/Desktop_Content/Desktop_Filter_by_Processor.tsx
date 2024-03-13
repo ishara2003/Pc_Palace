@@ -5,7 +5,13 @@ interface ProcessorCheckboxData {
     processorIsChecked: boolean;
 }
 
-function Desktop_Filter_by_Processor() {
+interface Props {
+    
+    onProcessorChange: (processor: any) => void;
+      
+}
+
+function Desktop_Filter_by_Processor({onProcessorChange}:any) {
 
 
     const initialScreenSizeCheckboxes: ProcessorCheckboxData[] = [
@@ -23,69 +29,27 @@ function Desktop_Filter_by_Processor() {
     const [processorcheckboxStates, setProcessorcheckboxStates]
         = useState<ProcessorCheckboxData[]>(initialScreenSizeCheckboxes);
 
-    const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
-        setProcessorcheckboxStates((prevStates) => {
-            const newStates = [...prevStates];
-            newStates[index].processorIsChecked = event.target.checked;
-
-
-            switch (newStates[index]) {
-
-                case newStates[0]:
-                    console.log(newStates[0].processorName);
-                    break;
-                case newStates[1]:
-                    console.log(newStates[1].processorName);
-
-                    break;
-                case newStates[2]:
-                    console.log(newStates[2].processorName);
-                    break;
-
-                case newStates[3]:
-                    console.log(newStates[3].processorName);
-                    break;
-
-                case newStates[4]:
-                    console.log(newStates[4].processorName);
-                    break;
-
-                case newStates[5]:
-                    console.log(newStates[5].processorName);
-                    break;
-
-                case newStates[6]:
-                    console.log(newStates[6].processorName);
-                    break;
-                default:
-                    console.log("None selected");
-                    break;
-
-            }
-
-            /*
-                        if (newStates[index].processorName == 'INTEL CORE i3') {
-                            /!* console.log("INTEL CORE i3");
-                             console.log(initialScreenSizeCheckboxes[0].processorName);*!/
-                        }
-
-                        if (newStates[index].processorName == '14 INCHES') {
-                            console.log("14 INCHES");
-                        }
-
-                        if (newStates[index].processorName == '15 INCHES') {
-                            console.log("15 INCHES");
-                        }
-
-                        if (newStates[index].processorName == '16 INCHES') {
-                            console.log("16 INCHES");
-                        }*/
-
-            return newStates;
-        });
-
-        // console.log(`${processorcheckboxStates[index].name} checkbox is checked:`, event.target.checked);
-    };
+        const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
+            const isChecked = event.target.checked;
+            let processorTemp = initialScreenSizeCheckboxes[index].processorName;
+    
+            setProcessorcheckboxStates(prevStates => {
+                const newStates = [...prevStates];
+                newStates[index].processorIsChecked = isChecked;
+    
+                if (isChecked) {                
+                    console.log("Added to processorcheckboxStates");
+                    
+                    onProcessorChange({processorName:processorTemp,processorIsChecked:true});
+                } else {
+                    onProcessorChange({processorName:processorTemp,processorIsChecked:false});
+    
+                }
+    
+                return newStates;
+            });
+        };
+    
 
 
     return (
