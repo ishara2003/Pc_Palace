@@ -38,3 +38,17 @@
     /*left: 200px;*/
 
 }
+
+.beautify-heading {
+    /* font-family: 'Your Chosen Font', sans-serif; */
+    /* color: #333; */
+    text-shadow: 8px 8px 16px rgba(17, 228, 210, 0.712);
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    /* background-image: linear-gradient( to bottom, #05b2b2, #23619a,#001c21); */
+}
+

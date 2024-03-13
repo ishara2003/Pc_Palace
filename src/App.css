@@ -7,7 +7,7 @@
 
 }
 
-#root p , label ,ul{
+#root * {
   font-family: inria Serif, serif;
   color: white;
 

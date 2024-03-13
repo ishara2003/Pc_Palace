@@ -5,7 +5,7 @@ function Component_Catagorees_Casing() {
     return(
         <div className={'flex'}>
 
-            <Component_Catagorees_Casing_Filters/>
+            <Component_Catagorees_Casing_Filters />
 
         </div>
     )

@@ -1,7 +1,23 @@
+import { useState } from "react";
 import Printer_Filter from "./Printer_Filter.tsx";
 import Printer_Product_Content from "./Printer_Product_Content.tsx";
+import CardList from "../Main_Content/Page_Forwerd.tsx";
 
 function Printer_Main_Content() {
+
+
+    const [score, setScore] = useState(1);  // Lift the state up
+
+    const add = () => {
+      setScore(score + 1);
+    };
+  
+    const min = () => {
+      if (score > 1) {
+        setScore(score - 1);
+      }
+    };
+
     return (
         <div className={'main_content_root p-4 '}>
 
@@ -18,8 +34,11 @@ function Printer_Main_Content() {
 
 
                 <div className={'w-full h-full border-l-[#0af3f3] border-l-4 p-2 '}>
+<>
+                    <Printer_Product_Content score = {score} />
 
-                    <Printer_Product_Content/>
+<CardList score = {score} add = {add} min = {min} />
+</>
 
                 </div>
             </div>
