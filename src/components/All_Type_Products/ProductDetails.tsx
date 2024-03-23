@@ -133,23 +133,48 @@ function ProductDetail(props: any) {
         const file               = r.file.s3Key;
         const qty                = r.qty;
         const manufacture        = r.manufacture;
+        const workstation        = r.workstation;
+        const socket_type        = r.socket_type;
         const processor          = r.processor;
         const gpu                = r.gpu;
         const storage_type       = r.storage_type;
         const ram                = r.ram;
         const screen_size        = r.screen_size;
         const v_ram              = r.v_ram;
+        const cores              = r.cores;
+        const chip_set              = r.chip_set;
+        const interfaces              = r.interface;
+        const modular              = r.modular;
+        const cooler_type              = r.cooler_type;
+        const resolution              = r.resolution;
+        const refresh_rate              = r.refresh_rate;
+        const accessories_type              = r.accessories_type;
+        const speed              = r.speed;
         const warranty           = r.warranty;
         const additional_details = r.additional_details;
         const discount           = r.discount;
         const caled              = r.caled;
-        console.log("fuck you fucking bictch : ", caled);
+
+        // console.log("fuck you fucking bictch : ", caled);
 
         const manu: string    = "Manufacture";
-        const vga: string     = "VGA";
+        const vga: string     = "V_RAM";
         const process: string = "Processor";
         const s_size: string  = "Screen Size";
         const Ram: string     = "Ram";
+        const specification_gpu: string     = "GPU";
+        const specification_storage_type: string     = "Storage Type";
+        const specification_workstation: string     = "Workstation";
+        const specification_socket_type: string     = "Socket Type";
+        const specification_cores: string     = "Cores";
+        const specification_chip_set: string     = "Chip Set";
+        const specification_interface: string     = "Interface";
+        const specification_modular: string     = "Modular";
+        const specification_cooler_type: string     = "Cooler Type";
+        const specification_resolution: string     = "Resolution";
+        const specification_refresh_rate: string     = "Refresh Rate";
+        const specification_accessories_type: string     = "Accessories Type";
+        const specification_speed: string     = "Speed";
 
 
 
@@ -303,7 +328,20 @@ function ProductDetail(props: any) {
                 {SpesificationValuesChecking(process, processor)}
                 {SpesificationValuesChecking(Ram, ram)}
                 {SpesificationValuesChecking(s_size, screen_size)}
-                {SpesificationValuesChecking(s_size, storage_type)}
+                {/* {SpesificationValuesChecking(s_size, storage_type)} */}
+                {SpesificationValuesChecking(specification_interface, interfaces)}
+                {SpesificationValuesChecking(specification_gpu, gpu)}
+                {SpesificationValuesChecking(specification_storage_type, storage_type)}
+                {SpesificationValuesChecking(specification_workstation, workstation)}
+                {SpesificationValuesChecking(specification_socket_type, socket_type)}
+                {SpesificationValuesChecking(specification_cores, cores)}
+                {SpesificationValuesChecking(specification_chip_set, chip_set)}
+                {SpesificationValuesChecking(specification_modular, modular)}
+                {SpesificationValuesChecking(specification_cooler_type, cooler_type)}
+                {SpesificationValuesChecking(specification_resolution, resolution)}
+                {SpesificationValuesChecking(specification_refresh_rate, refresh_rate)}
+                {SpesificationValuesChecking(specification_accessories_type, accessories_type)}
+                {SpesificationValuesChecking(specification_speed, speed)}
               </div>
 
               <div className = "w-full text-left p-5">

@@ -1,7 +1,8 @@
 // import './CSS/MainContent.css';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Product from "../All_Type_Products/Product.tsx";
+import LaptopFilterService from "../../service/LaptopFilterService.ts";
 
 // interface Data {
 //     _id: number,
@@ -60,73 +61,114 @@ import Product from "../All_Type_Products/Product.tsx";
 
 
 interface FileData {
-    filename: string;
-    contentType: string;
-    s3Key: string;
+  filename: string;
+  contentType: string;
+  s3Key: string;
 }
 
 interface ProductData {
-    _id: number;
-    title: string;
-    file: FileData;
-    price: number;
-    type: string;
-    discount:number
+  _id: number;
+  title: string;
+  file: FileData;
+  price: number;
+  type: string;
+  discount: number
 }
 
-function Laptop_Product_Content({ score }:any) {
+interface Props {
+  score: number;
+  selectedBrand: string[]; // Corrected prop name
+  selectedProcessor: string[];
+  selectedGPU: string[];
+  selectedRAM: string[];
+  selectedScreenSize: string[];
+
+}
+
+function Laptop_Product_Content({ score, selectedBrand, selectedProcessor, selectedGPU, selectedRAM, selectedScreenSize }: Props) {
+
+  console.log(selectedBrand);
+  console.log(selectedProcessor);
+  console.log(selectedGPU);
+  console.log(selectedRAM);
+  console.log(selectedScreenSize);
 
 
-    
-    const [products, setProducts] = useState<ProductData[]>([]);
-    console.log("products:",products);
-    console.log("function Laptop_Product_Content : ",score);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5050/products/filter_by_type?req_type=LAPTOP&size=20&page=${score}`);
-                setProducts(response.data.data);
-                console.log("888484848488484",response.data.data);
-                
-                console.log(products);
-            } catch (error) {
-                console.error('Error fetching data:', error);
+
+  const [products, setProducts] = useState<ProductData[]>([]);
+  console.log("products:", products);
+  console.log("function Laptop_Product_Content : ", score);
+
+
+  const fetchData = async () => {
+    try {
+
+      if (selectedProcessor.length != 0) {
+
+        LaptopFilterService.getFilterByProcessor(selectedProcessor, setProducts, score);
+
+      } else if (selectedBrand.length != 0) {
+
+        let res = await LaptopFilterService.getFilterByManufacture(selectedBrand, setProducts, score)
+
+      } else if (selectedGPU.length != 0) {
+
+        LaptopFilterService.getFilterByGpu(selectedGPU, setProducts, score);
+
+
+      } else if (selectedRAM.length != 0) {
+
+        LaptopFilterService.getFilterByRam(selectedRAM, setProducts, score);
+
+      } else if (selectedScreenSize.length != 0) {
+        LaptopFilterService.getFilterByScreenSize(selectedScreenSize, setProducts, score)
+      } else {
+        LaptopFilterService.getFilterByType("LAPTOP",setProducts, score);
+      }
+
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+
+
+  useEffect(() => {
+
+    fetchData();
+  }, [score, selectedBrand, selectedProcessor, selectedGPU, selectedRAM, selectedScreenSize]);
+
+  return (
+    <div className="mt-6 text-4xl">
+      <div className="w-full mt-6">
+        <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto">
+          {products.map((product: ProductData) => {
+            console.log(products);
+
+            const dis: number = product.price - (product.price / product.discount)
+            console.log(dis);
+
+
+            if (product.type === "LAPTOP") {
+              if (product.discount) {
+                //@ts-ignore
+                return <Product title={product.title} file={product.file} discount_price={dis.toFixed(0)}
+                  fixed_price={product.price} _id={product._id} />
+              } else {
+
+                return <Product title={product.title} file={product.file} discount_price={product.price}
+                  fixed_price={0} _id={product._id} />
+
+              }
+
             }
-        };
 
-        fetchData();
-    }, [score]);
-
-    return (
-        <div className="mt-6 text-4xl">
-            <div className="w-full mt-6">
-                <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto">
-                    {products.map((product: ProductData) => {
-                        console.log(products);
-                        
-const dis:number = product.price - (product.price / product.discount)
-console.log(dis);
-
-
-                           if (product.type==="LAPTOP"){
-                            if(product.discount){
-                                //@ts-ignore
-                                return <Product title={product.title} file={product.file} discount_price={dis.toFixed(0)}
-                                fixed_price={product.price} _id={product._id} />
-                            }else{
-
-                                return <Product title={product.title} file={product.file} discount_price={product.price}
-                                fixed_price={0} _id={product._id} />
-
-                            }
-                          
-                            }
-
-                         })}
-                </div>
-            </div>
+          })}
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Laptop_Product_Content;
