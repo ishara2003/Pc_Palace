@@ -6,7 +6,13 @@ interface RamCheckboxData {
     ramIsChecked: boolean;
 }
 
-function Laptop_Filter_by_Memory() {
+interface Props{
+
+    OnSelectedRAM:(ram:any)=> void
+
+}
+
+function Laptop_Filter_by_Memory({OnSelectedRAM}:Props) {
 
 
     const initialMemorycheckboxes: RamCheckboxData[] = [
@@ -14,6 +20,7 @@ function Laptop_Filter_by_Memory() {
         {ramName: '8GB', ramIsChecked: false},
         {ramName: '16GB', ramIsChecked: false},
         {ramName: '32GB', ramIsChecked: false},
+        {ramName: '64GB', ramIsChecked: false},
 
 
         // Add more checkboxes as needed
@@ -23,51 +30,19 @@ function Laptop_Filter_by_Memory() {
         = useState<RamCheckboxData[]>(initialMemorycheckboxes);
 
     const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
+
+        const isRAMChecked = event.target.checked;
+        const tempRam = ramcheckboxStates[index].ramName;
+
         setRamcheckboxStates((prevStates) => {
             const newStates = [...prevStates];
             newStates[index].ramIsChecked = event.target.checked;
 
-
-            switch (newStates[index]) {
-
-                case newStates[0]:
-                    console.log(newStates[0].ramName);
-                    break;
-                case newStates[1]:
-                    console.log(newStates[1].ramName);
-
-                    break;
-                case newStates[2]:
-                    console.log(newStates[2].ramName);
-                    break;
-
-                case newStates[3]:
-                    console.log(newStates[3].ramName);
-                    break;
-
-                default:
-                    console.log("None selected");
-                    break;
-
+            if(isRAMChecked){
+                OnSelectedRAM({ram:tempRam,ramIsChecked:true})
+            }else{
+                OnSelectedRAM({ram:tempRam,ramIsChecked:false})
             }
-
-            /*
-                        if (newStates[index].processorName == 'INTEL CORE i3') {
-                            /!* console.log("INTEL CORE i3");
-                             console.log(initialMemorycheckboxes[0].processorName);*!/
-                        }
-
-                        if (newStates[index].processorName == '14 INCHES') {
-                            console.log("14 INCHES");
-                        }
-
-                        if (newStates[index].processorName == '15 INCHES') {
-                            console.log("15 INCHES");
-                        }
-
-                        if (newStates[index].processorName == '16 INCHES') {
-                            console.log("16 INCHES");
-                        }*/
 
             return newStates;
         });
