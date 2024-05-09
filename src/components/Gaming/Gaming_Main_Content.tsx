@@ -42,7 +42,7 @@ function Gaming_Main_Content() {
       <div className = {"flex mt-3"}>
       <div className = {"items-center w-[288px] h-full p-2"}>
       <div className = {""}>
-      <ul  className = {"text-[20px] pt-6 pb-8 text-left "}>
+      <ul  className = {"text-[18px] pt-6 pb-8 text-left "}>
               <b>
                 <li
                   className={

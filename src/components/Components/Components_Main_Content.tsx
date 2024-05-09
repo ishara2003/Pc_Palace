@@ -62,7 +62,7 @@ function Components_Main_Content() {
 
                     <div className={''}>
 
-                        <ul className={"text-[20px] pt-6 pb-8 text-left "}>
+                        <ul className={"text-[18px] pt-6 pb-8 text-left "}>
                             <b>
 
                                 <li className={'header_nav_bar header_nav_bar_color w-full h-[60px] p-[10px] mt-[30px] mb-[30px] border-[4px] border-cyan-500'}
@@ -118,7 +118,7 @@ function Components_Main_Content() {
 
                 </div>
 
-                <div className={'component_area items-center w-96 h-full ml-8  p-2'}>
+                <div className={'component_area items-center w-80 h-full ml-8  p-2'}>
 
                     {currentCategory == "PROCESSOR" &&
                         <Component_Catagorees_Processors/>

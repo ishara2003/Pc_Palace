@@ -99,6 +99,90 @@ class LaptopService {
   }//getFilterByScreenSize
 
 
+  getFilterBy_MF_SS_CPU_GPU_RAM = async (manufacture: any, screen_size: any,processor: any,gpu: any,ram: any, setProducts: any, score: any) => {
+
+    axios.get(apiRoutes.MF_SS_CPU_GPU_RAM.concat(`req_manufacture=${manufacture}&req_screenSize=${screen_size}&req_processor=${processor}&req_gpu=${gpu}&req_ram=${ram}&size=20&page=${score}`))
+
+      .then((response) => {
+
+        setProducts(response.data.data);
+
+      })
+      .catch((error) => {
+        console.log("Error : ", error);
+
+      });
+  }//getFilterBy_MF_SS_CPU_GPU_RAM
+
+
+
+  getFilterBy_MF_SS_CPU_GPU = async (manufacture: any, screen_size: any,processor: any,gpu: any, setProducts: any, score: any) => {
+
+    axios.get(apiRoutes.MF_SS_CPU_GPU.concat(`req_manufacture=${manufacture}&req_screenSize=${screen_size}&req_processor=${processor}&req_gpu=${gpu}&size=20&page=${score}`))
+
+      .then((response) => {
+
+        setProducts(response.data.data);
+
+      })
+      .catch((error) => {
+        console.log("Error : ", error);
+
+      });
+  }//getFilterBy_MF_SS_CPU_GPU
+
+
+
+  getFilterBy_MF_CPU_GPU_RAM = async (manufacture: any, processor: any,gpu: any,ram: any, setProducts: any, score: any) => {
+
+    axios.get(apiRoutes.MF_CPU_GPU_RAM.concat(`req_manufacture=${manufacture}&req_processor=${processor}&req_gpu=${gpu}&req_ram=${ram}&size=20&page=${score}`))
+
+      .then((response) => {
+
+        setProducts(response.data.data);
+
+      })
+      .catch((error) => {
+        console.log("Error : ", error);
+
+      });
+  }//getFilterBy_MF_CPU_GPU_RAM
+
+
+
+
+  getFilterBy_MF_SS_CPU_RAM = async (manufacture: any, screen_size: any,processor: any, ram: any, setProducts: any, score: any) => {
+
+    axios.get(apiRoutes.MF_SS_CPU_RAM.concat(`req_manufacture=${manufacture}&req_screenSize=${screen_size}&req_processor=${processor}&req_ram=${ram}&size=20&page=${score}`))
+
+      .then((response) => {
+
+        setProducts(response.data.data);
+
+      })
+      .catch((error) => {
+        console.log("Error : ", error);
+
+      });
+  }//getFilterBy_MF_SS_CPU_RAM
+
+
+  getFilterBy_MF_SS_GPU_RAM = async (manufacture: any, screen_size: any, gpu: any,ram: any, setProducts: any, score: any) => {
+
+    axios.get(apiRoutes.MF_SS_GPU_RAM.concat(`req_manufacture=${manufacture}&req_screenSize=${screen_size}&req_gpu=${gpu}&req_ram=${ram}&size=20&page=${score}`))
+
+      .then((response) => {
+
+        setProducts(response.data.data);
+
+      })
+      .catch((error) => {
+        console.log("Error : ", error);
+
+      });
+  }//getFilterBy_MF_SS_CPU_GPU_RAM
+
+
 
 
 }//LaptopService

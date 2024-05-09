@@ -103,29 +103,43 @@ function Laptop_Product_Content({ score, selectedBrand, selectedProcessor, selec
   const fetchData = async () => {
     try {
 
-      if (selectedProcessor.length != 0) {
+      if (selectedBrand.length != 0 && selectedScreenSize.length != 0 && selectedProcessor.length != 0 && selectedGPU.length != 0 && selectedRAM.length != 0) {
 
-        LaptopFilterService.getFilterByProcessor(selectedProcessor, setProducts, score);
+        LaptopFilterService.getFilterBy_MF_SS_CPU_GPU_RAM(selectedBrand, selectedScreenSize, selectedProcessor, selectedGPU, selectedRAM, setProducts, score)
 
-      } else if (selectedBrand.length != 0) {
-
-        let res = await LaptopFilterService.getFilterByManufacture(selectedBrand, setProducts, score)
-
-      } else if (selectedGPU.length != 0) {
-
-        LaptopFilterService.getFilterByGpu(selectedGPU, setProducts, score);
-
-
-      } else if (selectedRAM.length != 0) {
-
-        LaptopFilterService.getFilterByRam(selectedRAM, setProducts, score);
-
-      } else if (selectedScreenSize.length != 0) {
-        LaptopFilterService.getFilterByScreenSize(selectedScreenSize, setProducts, score)
+      } else if (selectedBrand.length != 0 && selectedScreenSize.length != 0 && selectedProcessor.length != 0 && selectedGPU.length != 0) {
+        LaptopFilterService.getFilterBy_MF_SS_CPU_GPU(selectedBrand, selectedScreenSize, selectedProcessor, selectedGPU, setProducts, score)
+      } else if (selectedBrand.length != 0 && selectedProcessor.length != 0 && selectedGPU.length != 0 && selectedRAM.length != 0) {
+        LaptopFilterService.getFilterBy_MF_CPU_GPU_RAM(selectedBrand, selectedProcessor, selectedGPU, selectedRAM, setProducts, score)
+      } else if (selectedBrand.length != 0 && selectedScreenSize.length != 0 && selectedProcessor.length != 0 && selectedRAM.length != 0) {
+        LaptopFilterService.getFilterBy_MF_SS_CPU_RAM(selectedBrand, selectedScreenSize, selectedProcessor, selectedRAM, setProducts, score)
+      } else if (selectedBrand.length != 0 && selectedScreenSize.length != 0 && selectedGPU.length != 0 && selectedRAM.length != 0) {
+        LaptopFilterService.getFilterBy_MF_SS_GPU_RAM(selectedBrand, selectedScreenSize, selectedGPU, selectedRAM, setProducts, score)
       } else {
-        LaptopFilterService.getFilterByType("LAPTOP",setProducts, score);
-      }
 
+        if (selectedProcessor.length != 0) {
+
+          LaptopFilterService.getFilterByProcessor(selectedProcessor, setProducts, score);
+
+        } else if (selectedBrand.length != 0) {
+
+          let res = await LaptopFilterService.getFilterByManufacture(selectedBrand, setProducts, score)
+
+        } else if (selectedGPU.length != 0) {
+
+          LaptopFilterService.getFilterByGpu(selectedGPU, setProducts, score);
+
+
+        } else if (selectedRAM.length != 0) {
+
+          LaptopFilterService.getFilterByRam(selectedRAM, setProducts, score);
+
+        } else if (selectedScreenSize.length != 0) {
+          LaptopFilterService.getFilterByScreenSize(selectedScreenSize, setProducts, score)
+        } else {
+          LaptopFilterService.getFilterByType("LAPTOP", setProducts, score);
+        }
+      }
 
     } catch (error) {
       console.error('Error fetching data:', error);

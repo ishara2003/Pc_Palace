@@ -27,6 +27,7 @@ function Laptop_Filer_by_Brand({ onBrandChecked }: Props) {
         { name: 'HUAWEI', isChecked: false },
         { name: 'DELL', isChecked: false },
         { name: 'ZENBOOK', isChecked: false },
+        { name: 'Other', isChecked: false },
         // Add more checkboxes as needed
     ];
 

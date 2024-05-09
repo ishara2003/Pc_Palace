@@ -142,44 +142,44 @@ function ProductDetail(props: any) {
         const screen_size        = r.screen_size;
         const v_ram              = r.v_ram;
         const cores              = r.cores;
-        const chip_set              = r.chip_set;
-        const interfaces              = r.interface;
-        const modular              = r.modular;
-        const cooler_type              = r.cooler_type;
-        const resolution              = r.resolution;
-        const refresh_rate              = r.refresh_rate;
-        const accessories_type              = r.accessories_type;
+        const chip_set           = r.chip_set;
+        const interfaces         = r.interface;
+        const modular            = r.modular;
+        const cooler_type        = r.cooler_type;
+        const resolution         = r.resolution;
+        const refresh_rate       = r.refresh_rate;
+        const accessories_type   = r.accessories_type;
         const speed              = r.speed;
         const warranty           = r.warranty;
         const additional_details = r.additional_details;
         const discount           = r.discount;
         const caled              = r.caled;
 
-        // console.log("fuck you fucking bictch : ", caled);
+          // console.log("fuck you fucking bictch : ", caled);
 
-        const manu: string    = "Manufacture";
-        const vga: string     = "V_RAM";
-        const process: string = "Processor";
-        const s_size: string  = "Screen Size";
-        const Ram: string     = "Ram";
-        const specification_gpu: string     = "GPU";
+        const manu: string                           = "Manufacture";
+        const vga: string                            = "V_RAM";
+        const process: string                        = "Processor";
+        const s_size: string                         = "Screen Size";
+        const Ram: string                            = "Ram";
+        const specification_gpu: string              = "GPU";
         const specification_storage_type: string     = "Storage Type";
-        const specification_workstation: string     = "Workstation";
-        const specification_socket_type: string     = "Socket Type";
-        const specification_cores: string     = "Cores";
-        const specification_chip_set: string     = "Chip Set";
-        const specification_interface: string     = "Interface";
-        const specification_modular: string     = "Modular";
-        const specification_cooler_type: string     = "Cooler Type";
-        const specification_resolution: string     = "Resolution";
+        const specification_workstation: string      = "Workstation";
+        const specification_socket_type: string      = "Socket Type";
+        const specification_cores: string            = "Cores";
+        const specification_chip_set: string         = "Chip Set";
+        const specification_interface: string        = "Interface";
+        const specification_modular: string          = "Modular";
+        const specification_cooler_type: string      = "Cooler Type";
+        const specification_resolution: string       = "Resolution";
         const specification_refresh_rate: string     = "Refresh Rate";
-        const specification_accessories_type: string     = "Accessories Type";
-        const specification_speed: string     = "Speed";
+        const specification_accessories_type: string = "Accessories Type";
+        const specification_speed: string            = "Speed";
 
 
 
-        let price2 = 0;
-        let  dised_price2 = 0;
+        let price2       = 0;
+        let dised_price2 = 0;
 
         const handle_save_on_local_storage = () => {
           console.log("To Local Called");
@@ -240,7 +240,7 @@ function ProductDetail(props: any) {
           if (r.discount >= 0) {
             console.log("check_if_discount : ", caled);
               //@ts-ignore
-             dised_price2 = caled * score;
+            dised_price2 = caled * score;
             console.log("check_if_discount : ", dised_price2);
             return (
               <label htmlFor = "">{dised_price2.toLocaleString()}</label>
@@ -281,7 +281,7 @@ function ProductDetail(props: any) {
                   <ul>
                     <li className = "p-5">{title}</li>
                     <li className = "p-5">Warranty: {warranty}</li>
-                    <li className = "p-5">LKR: {caled?.toLocaleString()}</li>
+                    <li className = "p-5">LKR: {caled?.toFixed(0)?.toLocaleString()}</li>
                     {/* <li className="p-5">Availability: {qty}</li> */}
                   </ul>
                 </div>
@@ -305,7 +305,7 @@ function ProductDetail(props: any) {
                   </div>
 
                   <div className = "w-full h-36 flex items-center justify-center">
-                   TOTAL: {check_if_discount()}
+                    TOTAL: {check_if_discount()}
                   </div>
                 </div>
 
@@ -321,8 +321,8 @@ function ProductDetail(props: any) {
             </div>
 
             <div className = "border-2 rounded-md text-white p-4 text-center w-full h-fit mt-5">
-            <h1  className = "p-10 text-4xl">SPECIFICATION</h1>
-            <div className = "grid grid-cols-3 w-full items-center justify-between text-left text-2xl p-5">
+            <h1  className = "p-10 text-2xl">SPECIFICATION</h1>
+            <div className = "grid grid-cols-3 w-full items-center justify-between text-left text-1xl p-5">
                 {SpesificationValuesChecking(manu, manufacture)}
                 {SpesificationValuesChecking(vga, v_ram)}
                 {SpesificationValuesChecking(process, processor)}

@@ -13,6 +13,7 @@ function Component_Catagorees_Memory_Filter_by_Brand() {
         {memoryName: 'ADATA', memoryIsChecked: false},
         {memoryName: 'ADDLINK', memoryIsChecked: false},
         {memoryName: 'KINGSTON', memoryIsChecked: false},
+        {memoryName: 'Other', memoryIsChecked: false},
         /*{memoryName: 'HP', memoryIsChecked: false},
         {memoryName: 'ACER', memoryIsChecked: false},
         {memoryName: 'MAC', memoryIsChecked: false},

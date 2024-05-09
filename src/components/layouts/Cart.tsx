@@ -95,22 +95,22 @@ function Cart() {
         const table_item_price = local_item_price * local_score;
 
         const [score, setScore] = useState(local_score);
-        console.log("85421855 : ",score);
-        
+        console.log("85421855 : ", score);
+
         const add = () => {
-          setScore(score + 1); // Update the score using the current state value 'score'
+          setScore(score + 1);  // Update the score using the current state value 'score'
           console.log("Local Score:", local_score, "score", score);
           console.log("Score adding", score);
         };
 
         const min = () => {
           console.log("Score min before : ", score);
-          if(score>1){
-            setScore(score - 1); // Decrement the score only if it's greater than 1
+          if (score > 1) {
+            setScore(score - 1);  // Decrement the score only if it's greater than 1
             console.log("Score min", score);
           }
         };
-        
+
 
         console.log("Local Price In Table :", local_item_price);
 
@@ -134,7 +134,7 @@ function Cart() {
           }
         };
 
-        console.log("Final Price in Table : ", price2 , "2nd" , dised_price2);
+        console.log("Final Price in Table : ", price2, "2nd", dised_price2);
 
         const removeProduct = (productId: any) => {
             // Get the existing data from local storage
@@ -223,14 +223,14 @@ function Cart() {
 
   return (
     <div className = "p-10">
-    <h1  className = "text-6xl contact_us mb-10">QUOTATION</h1>
+    <h1  className = "text-4xl contact_us mb-10">QUOTATION</h1>
 
       <div>
         <table className = "text-2xl text-white w-full">{load_quot_data()}</table>
       </div>
 
       <button
-        className = "text-2xl border p-5 rounded-md header_nav_bar header_nav_bar_color"
+        className = "text-2xl border p-2 rounded-md header_nav_bar header_nav_bar_color"
         onClick   = {() => remove_from_local_Storage()}
       >
         SEND TO MAIL

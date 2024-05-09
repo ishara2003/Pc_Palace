@@ -14,6 +14,7 @@ function Component_Catagorees_Casing_Filter_by_Brand() {
     { casingName: "NZXT", casingIsChecked: false },
     { casingName: "ANTEC", casingIsChecked: false },
     { casingName: "LIAN LI", casingIsChecked: false },
+    { casingName: "Other", casingIsChecked: false },
     /*{memoryName: 'HUAWEI', memoryIsChecked: false},
         {memoryName: 'DELL', memoryIsChecked: false},*/
     // Add more checkboxes as needed

@@ -18,6 +18,7 @@ function Component_Catagorees_Monitor_Filter_by_Brand() {
         {monitorBrandName: 'DELL', monitorBrandisChecked: false},
         {monitorBrandName: 'SAMSUNG', monitorBrandisChecked: false},
         {monitorBrandName: 'VIEWSONIC', monitorBrandisChecked: false},
+        {monitorBrandName: 'Other', monitorBrandisChecked: false},
 
         // Add more checkboxes as needed
     ];

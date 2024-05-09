@@ -23,11 +23,25 @@ export const SCREEN_SIZE_MICROSERVICE = PRODUCT_MICROSERVICE + 'filter_by_screen
 
 
 
+export const MF_SS_CPU_GPU_RAM = PRODUCT_MICROSERVICE + 'filter_by_mf_ss_cpu_gpu_ram?'
+export const MF_SS_CPU_GPU = PRODUCT_MICROSERVICE + 'filter_by_mf_ss_cpu_gpu?'
+export const MF_SS_CPU_RAM = PRODUCT_MICROSERVICE + 'filter_by_mf_ss_cpu_ram?'
+export const MF_SS_GPU_RAM = PRODUCT_MICROSERVICE + 'filter_by_mf_ss_gpu_ram?'
+export const MF_CPU_GPU_RAM = PRODUCT_MICROSERVICE + 'filter_by_mf_cpu_gpu_ram?'
+
+
+
 export const WS_CPU_GPU_RAM = PRODUCT_MICROSERVICE + 'filter_all?'
+
+
+
 export const WS_CPU_GPU     = PRODUCT_MICROSERVICE + 'filter_by_three?'
 export const WS_CPU_RAM     = PRODUCT_MICROSERVICE + 'filter_by_workstation_processor_ram?'
 export const WS_GPU_RAM     = PRODUCT_MICROSERVICE + 'filter_by_workstation_gpu_ram?'
 export const CPU_GPU_RAM    = PRODUCT_MICROSERVICE + 'filter_by_three_2nd?'
+
+
+
 export const WS_CPU         = PRODUCT_MICROSERVICE + 'filter_by_workstation_processor?'
 export const WS_GPU         = PRODUCT_MICROSERVICE + 'filter_by_workstation_gpu?'
 export const WS_RAM         = PRODUCT_MICROSERVICE + 'filter_by_workstation_ram?'

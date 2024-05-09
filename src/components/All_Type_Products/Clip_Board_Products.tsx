@@ -34,23 +34,18 @@ function Clip_Board_Products({ file, productImage, title, _id }: Props) {
     return (
         
         <div className="flex items-center w-full h-[695.25px] ">
-
-            <img src={productImageUrl} alt="Image 1" className="h-[695px] w-fit  absolute" />
-            <div className="relative w-full h-[430px] left-40 bottom-3 flex cursor-pointer">
-
-                <img src={background_image_Url} alt="Image 1" className="pimage" onClick={() => navigateToProductDetailPage(_id)} />
-                
-                <h1 className="absolute text-8xl right-[350px] w-[850px] beautify-heading">
-                    {title.split('').map((letter, index) => (
-                        <span key={index} className="rounded-md  items-center justify-between">
-                            {letter}
-                        </span>
-                    ))}
-                </h1>
-
-            </div>
-
+        <img src={productImageUrl} alt="Image 1" className="h-[695px] w-fit absolute" />
+        <div className="relative w-full h-[430px] left-40 bottom-3 flex cursor-pointer">
+            <img src={background_image_Url} alt="Image 1" className="pimage" onClick={() => navigateToProductDetailPage(_id)} />
+            <h1 className="absolute text-4xl right-[160px] w-[550px] beautify-heading">
+                {title.split('').map((letter, index) => (
+                    <span key={index} className="rounded-md  items-center justify-between">
+                        {letter}
+                    </span>
+                ))}
+            </h1>
         </div>
+    </div>
     );
 }
 

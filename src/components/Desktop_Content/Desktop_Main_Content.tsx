@@ -88,7 +88,7 @@ function Desktop_Main_Content() {
             <h1 className={'w-fit laptop_header text-4xl relative left-[20px] top-[-5px] mb-2 '}><b>DESKTOP</b></h1>
 
             <div className={'flex mt-3'}>
-                <div className={'items-center w-96 h-full  p-2 '}>
+                <div className={'items-center w-80 h-full  p-2 '}>
                     <Desktop_Filter onWorkstationChange={addSelectedWorkstation} onProcessorChange={addSelectedProcessor} onGpuChange={addSelectedGPU} onRamChange={addSelectedRAM}/>
                 </div>
 

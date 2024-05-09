@@ -13,6 +13,7 @@ function Component_Catagorees_PowerSupply_Filter_by_Brand() {
         {upsBrandName: 'ASUS', upsBrandIsChecked: false},
         {upsBrandName: 'MSI', upsBrandIsChecked: false},
         {upsBrandName: 'ANTEC', upsBrandIsChecked: false},
+        {upsBrandName: 'Other', upsBrandIsChecked: false},
         /*{memoryName: 'HP', memoryIsChecked: false},
         {memoryName: 'ACER', memoryIsChecked: false},
         {memoryName: 'MAC', memoryIsChecked: false},
