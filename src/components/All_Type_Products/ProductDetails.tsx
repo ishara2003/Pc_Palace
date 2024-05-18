@@ -243,7 +243,7 @@ function ProductDetail(props: any) {
             dised_price2 = caled * score;
             console.log("check_if_discount : ", dised_price2);
             return (
-              <label htmlFor = "">{dised_price2.toLocaleString()}</label>
+              <label htmlFor = "">TOTAL :{" "+dised_price2.toLocaleString()}</label>
             );
           } else {
             console.log("cheach_if_not_discount : ", caled);
@@ -251,7 +251,7 @@ function ProductDetail(props: any) {
             price2 = price * score;
 
             console.log("cheach_if_not_discount : ", price2);
-            return <label htmlFor = "">TOTAL: {price2.toLocaleString()}</label>;
+            return <label htmlFor = "">TOTAL : {" "+price2.toLocaleString()}</label>;
           }
         };
 
@@ -281,7 +281,7 @@ function ProductDetail(props: any) {
                   <ul>
                     <li className = "p-5">{title}</li>
                     <li className = "p-5">Warranty: {warranty}</li>
-                    <li className = "p-5">LKR: {caled?.toFixed(0)?.toLocaleString()}</li>
+                    <li className = "p-5">LKR : {caled?.toFixed(0)?.toLocaleString()}</li>
                     {/* <li className="p-5">Availability: {qty}</li> */}
                   </ul>
                 </div>
@@ -305,7 +305,7 @@ function ProductDetail(props: any) {
                   </div>
 
                   <div className = "w-full h-36 flex items-center justify-center">
-                    TOTAL: {check_if_discount()}
+                    {check_if_discount()}
                   </div>
                 </div>
 

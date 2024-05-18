@@ -26,16 +26,10 @@ function Footer() {
 
             }
         };
-
-
-
     };
     return (
 
         <div>
-
-
-
 
             <footer className = {'bg-[#002E35] text-white p-5 '}>
             <h1     className = {'contact_us mb-8 mt-3 text-4xl'}><b><u>CONTACT US</u></b></h1>

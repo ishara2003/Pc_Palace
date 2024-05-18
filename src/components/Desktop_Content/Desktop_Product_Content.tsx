@@ -25,9 +25,11 @@ interface Props {
   selectedProcessor  : string[];  // Corrected prop name
   selectedGPU        : string[];
   selectedRAM        : string[];
+  selectedCondition        : string[];
 }
 
-function Desktop_Product_Content({ score, selectedWorkstation, selectedProcessor, selectedGPU, selectedRAM}: Props) {
+function Desktop_Product_Content({ score, selectedWorkstation, selectedProcessor, selectedGPU, selectedRAM,selectedCondition}: Props) {
+console.log(selectedCondition);
 
 
   const [data, setProps] = useState<Data[]>([]);

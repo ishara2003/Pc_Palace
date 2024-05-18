@@ -82,16 +82,18 @@ interface Props {
   selectedGPU: string[];
   selectedRAM: string[];
   selectedScreenSize: string[];
+  selectCondition: string[];
 
 }
 
-function Laptop_Product_Content({ score, selectedBrand, selectedProcessor, selectedGPU, selectedRAM, selectedScreenSize }: Props) {
+function Laptop_Product_Content({ score, selectedBrand, selectedProcessor, selectedGPU, selectedRAM, selectedScreenSize,selectCondition }: Props) {
 
   console.log(selectedBrand);
   console.log(selectedProcessor);
   console.log(selectedGPU);
   console.log(selectedRAM);
   console.log(selectedScreenSize);
+  console.log(selectCondition);
 
 
 

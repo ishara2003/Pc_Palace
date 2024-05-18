@@ -25,6 +25,7 @@ function Desktop_Filter_by_GPU({onGpuChange}:Props) {
         {gpuName: 'RTX 4050 6GB', gpuIsChecked: false},
         {gpuName: 'RTX 4060 8GB', gpuIsChecked: false},
         {gpuName: 'RTX 4070 8GB', gpuIsChecked: false},
+        {gpuName: 'RTX 4080 16GB', gpuIsChecked: false},
 
         // Add more checkboxes as needed
     ];

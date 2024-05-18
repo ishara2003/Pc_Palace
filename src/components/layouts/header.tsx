@@ -29,7 +29,7 @@ function Header() {
 
             <header className={'h-full pt-3'}>
                 <nav className={'flex justify-between items-center bg-transparent p-[0.5rem] w-full'}>
-                    <Link to={'/home'}>
+                    <Link to={'/'}>
                         <img src="https://logodix.com/logo/1597040.png" title="logo" alt="logo" className={'w-[80px] h-[40px]'}/>
                     </Link>
                     <div className={'w-2/3 h-[46px] rounded-3xl relative shadow-2xl shadow-[#0af3f3]'}>

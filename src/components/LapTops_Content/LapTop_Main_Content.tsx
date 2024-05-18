@@ -27,7 +27,20 @@ function LapTop_Main_Content() {
     const [selectedGPU, setSelectedGPU] = useState<string[]>([]);
     const [selectedRAM, setSelectedRAM] = useState<string[]>([]);
     const [selectedScreenSize, setSelectedScreenSize] = useState<string[]>([]);
+    const [selectCondition, setSelectCondition] = useState<string[]>([]);
 
+    const addSelectedCondition = (condition: any) => {
+
+        if (condition.conditionIsChecked) {
+
+            setSelectCondition(preSelected => [...preSelected, condition.condition]);
+
+        } else {
+
+            setSelectCondition(preSelected => preSelected.filter(item => item !== condition.condition))
+
+        }
+    }
 
     const addSelectedBrand = (brand: any) => {
 
@@ -41,6 +54,8 @@ function LapTop_Main_Content() {
 
         }
     }
+
+  
 
     const addSelectedProcessor = (processor: any) => {
 
@@ -105,14 +120,14 @@ function LapTop_Main_Content() {
 
                 <div className={'items-center w-96 h-full  p-2'}>
 
-                    <Laptop_Filter onBrandChecked={addSelectedBrand} onSelectedProcessor={addSelectedProcessor} onSelectedGPU={addSelectedGpu} OnSelectedRAM={addSelectedRAM} onSelectedScreenSize={addSelectedScreenSize} />
+                    <Laptop_Filter onBrandChecked={addSelectedBrand} onSelectedProcessor={addSelectedProcessor} onSelectedGPU={addSelectedGpu} OnSelectedRAM={addSelectedRAM} onSelectedScreenSize={addSelectedScreenSize} onConditionChecked={addSelectedCondition} />
 
                 </div>
 
 
                 <div className={'laptop_main_content_border'}>
 
-                    <Laptop_Product_Content score={score} selectedBrand={selectBrand} selectedProcessor={selectProcessor} selectedGPU={selectedGPU} selectedRAM={selectedRAM} selectedScreenSize={selectedScreenSize}/> {/* Pass score as prop */}
+                    <Laptop_Product_Content score={score} selectedBrand={selectBrand} selectedProcessor={selectProcessor} selectedGPU={selectedGPU} selectedRAM={selectedRAM} selectedScreenSize={selectedScreenSize} selectCondition={selectCondition} /> {/* Pass score as prop */}
                     {/* <Page_Forwerd/> */}
                     <CardList score={score} add={add} min={min} /> {/* Pass score and functions as props */}
 

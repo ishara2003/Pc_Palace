@@ -25,7 +25,20 @@ function Desktop_Main_Content() {
 
     const [selectedRAM, setSelectedRAM] = useState<string[]>([]);
 
+    const [selectCondition, setSelectCondition] = useState<string[]>([]);
 
+    const addSelectedCondition = (condition: any) => {
+
+        if (condition.conditionIsChecked) {
+
+            setSelectCondition(preSelected => [...preSelected, condition.condition]);
+
+        } else {
+
+            setSelectCondition(preSelected => preSelected.filter(item => item !== condition.condition))
+
+        }
+    }
 
     const addSelectedWorkstation = (workstation: any) => {
 
@@ -89,12 +102,12 @@ function Desktop_Main_Content() {
 
             <div className={'flex mt-3'}>
                 <div className={'items-center w-80 h-full  p-2 '}>
-                    <Desktop_Filter onWorkstationChange={addSelectedWorkstation} onProcessorChange={addSelectedProcessor} onGpuChange={addSelectedGPU} onRamChange={addSelectedRAM}/>
+                    <Desktop_Filter onWorkstationChange={addSelectedWorkstation} onProcessorChange={addSelectedProcessor} onGpuChange={addSelectedGPU} onRamChange={addSelectedRAM} onConditionChecked={addSelectedCondition}/>
                 </div>
 
                 <div className={'w-full h-full border-l-[#0af3f3] border-l-4 p-2 '}>
 
-                    <Desktop_Product_Content score={score} selectedWorkstation={selectedWorkstations} selectedProcessor={selectedProcessor} selectedGPU={selectedGPU} selectedRAM={selectedRAM} />
+                    <Desktop_Product_Content score={score} selectedWorkstation={selectedWorkstations} selectedProcessor={selectedProcessor} selectedGPU={selectedGPU} selectedRAM={selectedRAM} selectedCondition={selectCondition} />
                     
                     <CardList score={score} add={add} min={min}/> 
 
