@@ -29,7 +29,7 @@ function Header() {
 
             <header className={'h-full pt-3'}>
                 <nav className={'flex justify-between items-center bg-transparent p-[0.5rem] w-full'}>
-                    <Link to={'/home'}>
+                    <Link to={'/'}>
                         <img src="https://logodix.com/logo/1597040.png" title="logo" alt="logo" className={'w-[80px] h-[40px]'}/>
                     </Link>
                     <div className={'w-2/3 h-[46px] rounded-3xl relative shadow-2xl shadow-[#0af3f3]'}>
@@ -54,8 +54,10 @@ function Header() {
                             />
                             {showDiv && <div className={"text-amber-400 absolute w-1/4 h-48 border-2"}>New div created after button click</div>}
                         </li>
+                        <Link to={'/cart'}>
+                        
                         <li><FaCartShopping className={'w-[40px] h-[40px] cart_SVG'} /></li>
-
+                        </Link>
                     </ul>
                 </nav>
 
@@ -82,7 +84,7 @@ function Header() {
                     <div className="w-full ml-1 flex items-center header_nav_bar header_nav_bar_color ">
                         <Link className={'w-full'} to="/components">
                             <button className="w-full h-[46px] header_nav_bar header_nav_bar_color focus:outline-none">
-                                <b> COMPONENTS</b>
+                                <b>ACCESSORIES</b>
                             </button>
                         </Link>
                         <BiSolidDownArrow  className="ml-1 w-[30px]" />
@@ -108,11 +110,11 @@ function Header() {
                         </Link>
                     </div>
 
-                    <div className={'w-full  ml-1 mr-1'}>
+                    {/* <div className={'w-full  ml-1 mr-1'}>
                         <button className={'w-full h-[46px] header_nav_bar header_nav_bar_color focus:outline-none'}>
                             <b>MAKE YOUR OWN PC</b>
                         </button>
-                    </div>
+                    </div> */}
 
                 </div>
 

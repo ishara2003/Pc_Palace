@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+//@ts-ignore
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import '../LapTops_Content/CSS/Laptop_Main_Contnt_CSS.css';
@@ -9,6 +10,7 @@ export default function Desktop_Filter_by_Price() {
 
     const handleInputChange = (value: any) => {
         console.log(value[0]);
+        console.log(value[1]);
         // value.toFixed(1)
         setMinprice(value[0]);
         setMaxPrice(value[1])
@@ -19,8 +21,7 @@ export default function Desktop_Filter_by_Price() {
             <div className={'relative top-[25px]'}>
             <h2 className={'mb-3 relative left-[-80px] text-[20px] text-white'}><b>Price</b></h2>
 
-                <h1 className={'text-amber-50'}>{minprice.toFixed(0)} LKR -
-                    {maxPrice.toFixed(0)} LKR</h1>
+                <h1 className={'text-amber-50'}>{minprice.toFixed(0)} LKR - {maxPrice.toFixed(0)} LKR</h1>
 
             </div>
             <RangeSlider

@@ -5,29 +5,40 @@ import axios from "axios";
 import Product from "../../All_Type_Products/Product.tsx";
 
 interface Data {
-    id: number,
+    _id: number,
     title: string,
-    body: string,
-    fixed_price: string,
-    discount_price: string
+    file: {
+        filename: string;
+        contentType: string;
+        s3Key: string;
+    },
+    price: number,
+    type: string,
+    discount:number
 }
 
-function Component_Catogoree_Casing_Product_Content() {
-    const [data, setProps] = useState<Data[]>([]);
+function Component_Catogoree_Casing_Product_Content({ score }:any) {
 
-    const fetchData = (): void => {
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(response => {
-            console.log(response.data);
-            setProps(response.data);
-        }).catch(err => {
-            console.log(err);
-        });
-    };
 
+    
+    const [data, setProducts] = useState<Data[]>([]);
+    console.log("products:",data);
+    console.log("function Laptop_Product_Content : ",score);
     useEffect(() => {
-        console.log("");
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5050/products/filter_by_type?req_type=CASING&size=16&page=${score}`);
+                setProducts(response.data.data);
+                console.log("888484848488484",response.data.data);
+                
+                console.log(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
         fetchData();
-    }, []);
+    }, [score]);
 
     return (
         <div className={' mt-6 text-4xl '}>
@@ -37,9 +48,22 @@ function Component_Catogoree_Casing_Product_Content() {
                     className={'grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 w-fit relative m-auto'}>
                     {
                         data.map((r: Data, index: number) => {
-                            // return <Special_Offers_Products title={r.title} fixed_price={r.fixed_price} body={r.content}  discount_price={r.discount_price} key={index} />;
-                            return <Product title={r.title} productImage={"src/assets/products/Casings.png"} discount_price={r.id}
-                                                            fixed_price={r.id}/>
+                            const dis:number = r.price - (r.price / r.discount)
+                            console.log(dis);
+
+                            if (r.type==="CASING"){
+                                if(r.discount){
+                                    //@ts-ignore
+                                    return <Product title={r.title} file={r.file} discount_price={dis.toFixed(0)}
+                                    fixed_price={r.price} _id={r._id} />
+                                }else{
+    
+                                    return <Product title={r.title} file={r.file} discount_price={r.price}
+                                    fixed_price={0} _id={r._id} />
+    
+                                }
+                              
+                                }
                         })
                     }
 

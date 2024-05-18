@@ -17,7 +17,7 @@
 
 .hover_effect_for_all_click_events{
 
-    @apply w-72 p-5 border-solid border-2 border-[#0af3f3] ;
+    @apply w-64 p-5 border-solid border-2 border-[#0af3f3] ;
     /*transition: 1s;*/
     border-image: linear-gradient(to bottom, #0af3f3, #007bff)1;
 

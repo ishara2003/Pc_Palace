@@ -6,7 +6,13 @@ interface GpuCheckboxData {
     gpuIsChecked: boolean;
 }
 
-function Desktop_Filter_by_GPU() {
+interface Props{
+
+    onGpuChange:(gpu: any) => void;
+
+}
+
+function Desktop_Filter_by_GPU({onGpuChange}:Props) {
 
 
     const initialGPUcheckboxes: GpuCheckboxData[] = [
@@ -15,9 +21,11 @@ function Desktop_Filter_by_GPU() {
         {gpuName: 'RTX 3050 4GB', gpuIsChecked: false},
         {gpuName: 'RTX 3050 6GB', gpuIsChecked: false},
         {gpuName: 'RTX 3060 6GB', gpuIsChecked: false},
+        {gpuName: 'RTX 3060 8GB', gpuIsChecked: false},
         {gpuName: 'RTX 4050 6GB', gpuIsChecked: false},
         {gpuName: 'RTX 4060 8GB', gpuIsChecked: false},
         {gpuName: 'RTX 4070 8GB', gpuIsChecked: false},
+        {gpuName: 'RTX 4080 16GB', gpuIsChecked: false},
 
         // Add more checkboxes as needed
     ];
@@ -25,72 +33,28 @@ function Desktop_Filter_by_GPU() {
     const [gpucheckboxStates, setGpucheckboxStates]
         = useState<GpuCheckboxData[]>(initialGPUcheckboxes);
 
-    const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
-        setGpucheckboxStates((prevStates) => {
-            const newStates = [...prevStates];
-            newStates[index].gpuIsChecked = event.target.checked;
+        const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
+            const isChecked = event.target.checked;
+            let gpuTemp = initialGPUcheckboxes[index].gpuName;
+    
+            setGpucheckboxStates(prevStates => {
+                const newStates = [...prevStates];
+                newStates[index].gpuIsChecked = isChecked;
+    
+                if (isChecked) {                
+                    console.log("Added to processor checkbox States");
+                    
+                    onGpuChange({gpuName:gpuTemp,gpuIsChecked:true});
+                } else {
+                    onGpuChange({gpuName:gpuTemp,gpuIsChecked:false});
+    
+                }
+    
+                return newStates;
+            });
+        };
+    
 
-
-            switch (newStates[index]) {
-
-                case newStates[0]:
-                    console.log(newStates[0].gpuName);
-                    break;
-                case newStates[1]:
-                    console.log(newStates[1].gpuName);
-
-                    break;
-                case newStates[2]:
-                    console.log(newStates[2].gpuName);
-                    break;
-
-                case newStates[3]:
-                    console.log(newStates[3].gpuName);
-                    break;
-
-                case newStates[4]:
-                    console.log(newStates[4].gpuName);
-                    break;
-
-                case newStates[5]:
-                    console.log(newStates[5].gpuName);
-                    break;
-
-                case newStates[6]:
-                    console.log(newStates[6].gpuName);
-                    break;
-                case newStates[7]:
-                    console.log(newStates[7].gpuName);
-                    break;
-                default:
-                    console.log("None selected");
-                    break;
-
-            }
-
-            /*
-                        if (newStates[index].processorName == 'INTEL CORE i3') {
-                            /!* console.log("INTEL CORE i3");
-                             console.log(initialGPUcheckboxes[0].processorName);*!/
-                        }
-
-                        if (newStates[index].processorName == '14 INCHES') {
-                            console.log("14 INCHES");
-                        }
-
-                        if (newStates[index].processorName == '15 INCHES') {
-                            console.log("15 INCHES");
-                        }
-
-                        if (newStates[index].processorName == '16 INCHES') {
-                            console.log("16 INCHES");
-                        }*/
-
-            return newStates;
-        });
-
-        // console.log(`${gpucheckboxStates[index].name} checkbox is checked:`, event.target.checked);
-    };
 
 
     return (

@@ -17,6 +17,7 @@ function Component_Catagorees_Storage_Filter_by_Brand() {
         {brandyName: 'SEAGATE', brandyIsChecked: false},
         {brandyName: 'LEXAR', brandyIsChecked: false},
         {brandyName: 'TOSHIBA', brandyIsChecked: false},
+        {brandyName: 'Other', brandyIsChecked: false},
         // {memoryName: 'DELL', memoryIsChecked: false},
         // Add more checkboxes as needed
     ];

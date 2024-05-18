@@ -5,8 +5,9 @@ import Laptop_Filter_by_GPU from "./Laptop_Filter_by_GPU.tsx";
 import Laptop_Filter_by_Memory from "./Laptop_Filter_by_Memory.tsx";
 import Laptop_Filter_by_Price from "./Laptop_Filter_by_Price.tsx";
 import SuperSimple from "./Laptop_Filter_by_Price.tsx";
+import Laptop_Filter_by_Condition from "./Laptop_Filter_by_Condition.tsx";
 
-function Laptop_Filter() {
+function Laptop_Filter({onBrandChecked , onSelectedProcessor, onSelectedGPU, OnSelectedRAM, onSelectedScreenSize,onConditionChecked}:any) {
 
     return (
 
@@ -14,15 +15,17 @@ function Laptop_Filter() {
 
             <Laptop_Filter_by_Price/>
 
-            <Latptop_Filter_by_Brand/>
+            {/* <Laptop_Filter_by_Condition onConditionChecked={onConditionChecked}/> */}
 
-            <Laptop_Filter_by_Screen_Size/>
+            <Latptop_Filter_by_Brand onBrandChecked={onBrandChecked}/>
 
-            <Laptop_Filter_by_Processor/>
+            <Laptop_Filter_by_Screen_Size onSelectedScreenSize={onSelectedScreenSize}/>
 
-            <Laptop_Filter_by_GPU/>
+            <Laptop_Filter_by_Processor onSelectedProcessor={onSelectedProcessor}/>
 
-            <Laptop_Filter_by_Memory/>
+            <Laptop_Filter_by_GPU onSelectedGPU={onSelectedGPU}/>
+
+            <Laptop_Filter_by_Memory OnSelectedRAM={OnSelectedRAM}/>
 
 
         </div>

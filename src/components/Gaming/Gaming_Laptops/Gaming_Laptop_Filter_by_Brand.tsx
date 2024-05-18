@@ -18,6 +18,7 @@ function Gaming_Laptop_Filer_by_Brand() {
         {name: 'MAC', isChecked: false},
         {name: 'HUAWEI', isChecked: false},
         {name: 'DELL', isChecked: false},
+        {name: 'Other', isChecked: false},
         // Add more checkboxes as needed
     ];
 

@@ -1,23 +1,33 @@
-import {ChangeEvent, useEffect, useState} from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import '../Components/CSS/Filter_CSS.css'
 interface CheckboxData {
     name: string;
     isChecked: boolean;
 }
 
-function Laptop_Filer_by_Brand() {
+
+interface Props {
+
+    onBrandChecked: (brand: any) => void
+
+
+}
+
+function Laptop_Filer_by_Brand({ onBrandChecked }: Props) {
 
 
 
     const initialBrandCheckboxes: CheckboxData[] = [
-        {name: 'ASUS', isChecked: false},
-        {name: 'LENOVO', isChecked: false},
-        {name: 'MSI', isChecked: false},
-        {name: 'HP', isChecked: false},
-        {name: 'ACER', isChecked: false},
-        {name: 'MAC', isChecked: false},
-        {name: 'HUAWEI', isChecked: false},
-        {name: 'DELL', isChecked: false},
+        { name: 'ASUS', isChecked: false },
+        { name: 'LENOVO', isChecked: false },
+        { name: 'MSI', isChecked: false },
+        { name: 'HP', isChecked: false },
+        { name: 'ACER', isChecked: false },
+        { name: 'MAC', isChecked: false },
+        { name: 'HUAWEI', isChecked: false },
+        { name: 'DELL', isChecked: false },
+        { name: 'ZENBOOK', isChecked: false },
+        { name: 'Other', isChecked: false },
         // Add more checkboxes as needed
     ];
 
@@ -25,45 +35,58 @@ function Laptop_Filer_by_Brand() {
         = useState<CheckboxData[]>(initialBrandCheckboxes);
 
     const handleCheckboxChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
+
+        const isBrandChecked = event.target.checked;
+        const temp_brand = brandcheckboxStates[index].name;
+
         setBrandcheckboxStates((prevStates) => {
             const newStates = [...prevStates];
             newStates[index].isChecked = event.target.checked;
 
+            if (isBrandChecked) {
+console.log("Brand is clicked : ", isBrandChecked);
 
+                onBrandChecked({ brand: temp_brand, brandIsChecked: true })
 
+            } else {
+                onBrandChecked({ brand: temp_brand, brandIsChecked: false })
 
-            switch (newStates[index]) {
-
-                case newStates[0]:
-                    console.log(newStates[0].name);
-                    break;
-                case newStates[1]:
-                    console.log(newStates[1].name);
-
-                    break;
-                case newStates[2]:
-                    console.log(newStates[2].name);
-                    break;
-
-                case newStates[3]:
-                    console.log(newStates[3].name);
-                    break;
-
-                case newStates[4]:
-                    console.log(newStates[4].name);
-                    break;
-
-                case newStates[5]:
-                    console.log(newStates[5].name);
-                    break;
-
-                case newStates[6]:
-                    console.log(newStates[6].name);
-                    break;
-                default:
-                    console.log("None selected");
-                    break;
             }
+
+
+
+            // switch (newStates[index]) {
+
+            //     case newStates[0]:
+            //         console.log(newStates[0].name);
+            //         break;
+            //     case newStates[1]:
+            //         console.log(newStates[1].name);
+
+            //         break;
+            //     case newStates[2]:
+            //         console.log(newStates[2].name);
+            //         break;
+
+            //     case newStates[3]:
+            //         console.log(newStates[3].name);
+            //         break;
+
+            //     case newStates[4]:
+            //         console.log(newStates[4].name);
+            //         break;
+
+            //     case newStates[5]:
+            //         console.log(newStates[5].name);
+            //         break;
+
+            //     case newStates[6]:
+            //         console.log(newStates[6].name);
+            //         break;
+            //     default:
+            //         console.log("None selected");
+            //         break;
+            // }
 
 
 

@@ -1,4 +1,4 @@
-import {ChangeEvent, useState} from "react";
+import { ChangeEvent, useState } from "react";
 import '../CSS/Filter_CSS.css'
 
 interface CoolerCheckboxData {
@@ -10,14 +10,15 @@ function Component_Catagorees_Cooler_Filter_by_Brand() {
 
 
     const initialcoolerCheckboxes: CoolerCheckboxData[] = [
-        {coolerName: 'ASUS', coolerIsChecked: false},
-        {coolerName: 'MSI', coolerIsChecked: false},
-        {coolerName: 'COOLER MASTER', coolerIsChecked: false},
-        {coolerName: 'SADES', coolerIsChecked: false},
-        {coolerName: 'NZXT',  coolerIsChecked: false},
-        {coolerName: 'ADATA', coolerIsChecked: false},
+        { coolerName: 'ASUS', coolerIsChecked: false },
+        { coolerName: 'MSI', coolerIsChecked: false },
+        { coolerName: 'COOLER MASTER', coolerIsChecked: false },
+        { coolerName: 'SADES', coolerIsChecked: false },
+        { coolerName: 'NZXT', coolerIsChecked: false },
+        { coolerName: 'ADATA', coolerIsChecked: false },
+        { coolerName: "Other", coolerIsChecked: false },
         /*{memoryName: 'HUAWEI', memoryIsChecked: false},
-        {memoryName: 'DELL', memoryIsChecked: false},*/
+      {memoryName: 'DELL', memoryIsChecked: false},*/
         // Add more checkboxes as needed
     ];
 
@@ -57,9 +58,9 @@ function Component_Catagorees_Cooler_Filter_by_Brand() {
                     console.log(newStates[5].coolerName);
                     break;
 
-               /* case newStates[6]:
-                    console.log(newStates[6].memoryName);
-                    break;*/
+                /* case newStates[6]:
+                   console.log(newStates[6].memoryName);
+                   break;*/
                 default:
                     console.log("None selected");
                     break;
@@ -71,7 +72,7 @@ function Component_Catagorees_Cooler_Filter_by_Brand() {
             return newStates;
         });
 
-        };
+    };
 
 
     return (

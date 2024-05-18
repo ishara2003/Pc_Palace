@@ -11,7 +11,7 @@ function Component_Catagorees_Monitor_Filters() {
         <div>
             <Component_Catagorees_Motherboard_Filter_by_Price/>
             <Component_Catagorees_Monitor_Filter_by_Brand/>
-            <Component_Content_Monitor_Filter_by_Resolutions/>
+            {/* <Component_Content_Monitor_Filter_by_Resolutions/> */}
             <Component_Content_Monitor_Filter_by_Refresh_Rate/>
             <Component_Catagorees_Monitor_Filters_by_Refresh_Rate/>
         </div>

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+//@ts-ignore
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import '../LapTops_Content/CSS/Laptop_Main_Contnt_CSS.css';

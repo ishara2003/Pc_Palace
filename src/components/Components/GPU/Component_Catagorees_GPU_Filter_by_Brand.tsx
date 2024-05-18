@@ -13,6 +13,7 @@ function Component_Catagorees_GPU_Filter_by_Brand() {
         {GPUName: 'ASUS', GPUIsChecked: false},
         {GPUName: 'MSI', GPUIsChecked: false},
         {GPUName: 'SOLORFUL', GPUIsChecked: false},
+        {GPUName: 'Other', GPUIsChecked: false},
         /*{memoryName: 'HP', memoryIsChecked: false},
         {memoryName: 'ACER', memoryIsChecked: false},
         {memoryName: 'MAC', memoryIsChecked: false},

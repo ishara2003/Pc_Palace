@@ -24,6 +24,8 @@ import Component_Catogoree_Storage_Product_Content from "./Storage/Component_Cat
 import Component_Catogoree_CPU_Product_Content from "./Power Supply/Component_Catogoree_CPU_Product_Content.tsx";
 import Component_Catogoree_Cooler_Product_Content from "./Cooler/Component_Catogoree_Cooler_Product_Content.tsx";
 import Component_Catogoree_Monitor_Product_Content from "./Monitor/Component_Catogoree_Monitor_Product_Content.tsx";
+import CardList from "../Main_Content/Page_Forwerd.tsx";
+import Gaming_Product_Content from "../Gaming/Gaming_Product_Content.tsx";
 
 function Components_Main_Content() {
 
@@ -31,6 +33,19 @@ function Components_Main_Content() {
 
     const handleCategoryClick = (category: string) => {
         setCurrentCategory(category);
+    };
+
+    const [score, setScore] = useState(1); // Lift the state up
+
+    const add = () => {
+        setScore(score + 1);
+        
+    };
+
+    const min = () => {
+        if (score > 1) {
+            setScore(score - 1);
+        }
     };
 
 
@@ -47,7 +62,7 @@ function Components_Main_Content() {
 
                     <div className={''}>
 
-                        <ul className={"text-[20px] pt-6 pb-8 text-left "}>
+                        <ul className={"text-[18px] pt-6 pb-8 text-left "}>
                             <b>
 
                                 <li className={'header_nav_bar header_nav_bar_color w-full h-[60px] p-[10px] mt-[30px] mb-[30px] border-[4px] border-cyan-500'}
@@ -103,7 +118,7 @@ function Components_Main_Content() {
 
                 </div>
 
-                <div className={'component_area items-center w-96 h-full ml-8  p-2'}>
+                <div className={'component_area items-center w-80 h-full ml-8  p-2'}>
 
                     {currentCategory == "PROCESSOR" &&
                         <Component_Catagorees_Processors/>
@@ -148,43 +163,89 @@ function Components_Main_Content() {
                 <div className={'w-full h-full border-l-[#0af3f3] border-l-4 p-2 '}>
 
                     {currentCategory == "PROCESSOR" &&
-                        <Component_Catogoree_Processor_Product_Content/>
+                        
+                        <>
+                        <Component_Catogoree_Processor_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
                     {currentCategory == "MOTHERBOARDS" &&
-                        <Component_Catogoree_Motherboard_Product_Content/>
+                        
+                        <>
+                        <Component_Catogoree_Motherboard_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
                     {currentCategory == "MEMORY" &&
-                        <Component_Catogoree_RAM_Product_Content/>
+                        
+                        <>
+                        <Component_Catogoree_RAM_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
                     {currentCategory == "GRAPHIC CARDS" &&
-                        <Component_Catogoree_GPU_Product_Content/>
+                        
+                        <>
+                        <Component_Catogoree_GPU_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
                     {currentCategory == "STORAGES" &&
-                        <Component_Catogoree_Storage_Product_Content/>
+                        <>
+                        <Component_Catogoree_Storage_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
                     {currentCategory == "POWER SUPPLY" &&
-                        <Component_Catogoree_CPU_Product_Content/>
+                        <>
+                        <Component_Catogoree_CPU_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
                     {currentCategory == "COOLERS" &&
-                        <Component_Catogoree_Cooler_Product_Content/>
+                    <>
+                        <Component_Catogoree_Cooler_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
 
                     {currentCategory == "CASING" &&
-                        <Component_Catogoree_Casing_Product_Content/>
+                    <>
+                        <Component_Catogoree_Casing_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
                     {currentCategory == "MONITOR" &&
-                        <Component_Catogoree_Monitor_Product_Content/>
+                        
+                        <>
+                        <Component_Catogoree_Monitor_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
                     {currentCategory == "" &&
-                        <Component_Catogoree_Monitor_Product_Content/>
+                        
+                        <>
+                        <Component_Product_Content score={score}/> 
+                       
+                        <CardList score={score} add={add} min={min}/> 
+                        </>
                     }
 
                 </div>

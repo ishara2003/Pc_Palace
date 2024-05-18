@@ -12,6 +12,7 @@ function Component_Catagorees_Processor_Filter_by_Brand() {
     const initialBrandCheckboxes: CheckboxData[] = [
         {name: 'AMD', isChecked: false},
         {name: 'INTEL', isChecked: false},
+        // {name: 'Other', isChecked: false},
 
         // Add more checkboxes as needed
     ];

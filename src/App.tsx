@@ -14,6 +14,8 @@ import React from "react";
 import Gaming_Main_Content from "./components/Gaming/Gaming_Main_Content.tsx";
 import Printer_Product_Content from "./components/Printer_Content/Printer_Product_Content.tsx";
 import Printer_Main_Content from "./components/Printer_Content/Printer_Main_Content.tsx";
+import ProductDetail from './components/All_Type_Products/ProductDetails.tsx';
+import Cart from './components/layouts/Cart.tsx';
 
 function App() {
 
@@ -28,12 +30,15 @@ function App() {
 
                 <Routes>
 
-                    <Route path={"/home"} element={<Main_Content/>}/>
-                    <Route path={"/laptop"} element={<LapTop_Main_Content/>}/>
-                    <Route path={"/desktop"} element={<Desktop_Main_Content/>}/>
-                    <Route path={"/components"} element={<Components_Main_Content/>}/>
-                    <Route path={"/gaming"} element={<Gaming_Main_Content/>}></Route>
-                    <Route path={"/printers"} element={<Printer_Main_Content/>}></Route>
+                    <Route path = {"/"} element         = {<Main_Content/>}/>
+                    <Route path = {"/laptop"} element       = {<LapTop_Main_Content/>}/>
+                    <Route path = {"/desktop"} element      = {<Desktop_Main_Content/>}/>
+                    <Route path = {"/components"} element   = {<Components_Main_Content/>}/>
+                    <Route path = {"/gaming"} element       = {<Gaming_Main_Content/>}></Route>
+                    <Route path = {"/printers"} element     = {<Printer_Main_Content/>}></Route>
+                    <Route path = "/productdetails" element = {<ProductDetail/>} />
+                    <Route path = {"/cart"} element = {<Cart/>} />
+  
 
                 </Routes>
 
