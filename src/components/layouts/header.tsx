@@ -6,6 +6,7 @@ import {FaRegUserCircle} from "react-icons/fa";
 import './CSS/FooterCss.css';
 import { BiSolidDownArrow } from "react-icons/bi";
 import { IoIosSearch } from "react-icons/io";
+import SignIn from "./SingIn";
 
 
 
@@ -52,7 +53,7 @@ function Header() {
                             <FaRegUserCircle
                                 className={'w-[40px] h-[40px] cart_SVG'}
                             />
-                            {showDiv && <div className={"text-amber-400 absolute w-1/4 h-48 border-2"}>New div created after button click</div>}
+                            {showDiv && <SignIn/>}
                         </li>
                         <Link to={'/cart'}>
                         
